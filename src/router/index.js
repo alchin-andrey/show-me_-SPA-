@@ -1,20 +1,60 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
-import Home from '../views/Home.vue'
+import Home from '@/views/Home.vue'
+import SeriesCatalog from '@/views/SeriesCatalog.vue'
+import News from '@/views/News.vue'
+import MySeries from '@/views/MySeries.vue'
+import Profile from '@/views/Profile.vue'
+import Calendar from '@/views/Calendar.vue'
+import Favorites from '@/views/Favorites.vue'
+import Login from '@/views/Login.vue'
+import Register from '@/views/Register.vue'
 
 const routes = [
   {
-    path: '/',
-    name: 'Home',
+    path: '/home',
+    name: 'home',
     component: Home
   },
   {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-  }
+    path: '/series_catalog',
+    name: 'series_catalog',
+    component: SeriesCatalog
+  },
+  {
+    path: '/news',
+    name: 'news',
+    component: News
+  },
+  {
+    path: '/my_series',
+    name: 'my_series',
+    component: MySeries
+  },
+  {
+    path: '/profile',
+    name: 'profile',
+    component: Profile
+  },
+  {
+    path: '/calendar',
+    name: 'calendar',
+    component: Calendar
+  },
+  {
+    path: '/favorites',
+    name: 'favorites',
+    component: Favorites
+  },
+  {
+    path: '/login',
+    name: 'login',
+    component: Login
+  },
+  {
+    path: '/register',
+    name: 'register',
+    component: Register
+  },
 ]
 
 const router = createRouter({
