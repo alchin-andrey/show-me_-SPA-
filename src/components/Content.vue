@@ -8,7 +8,7 @@
 
 <script>
 export default {
-  name: 'Content',
+    name: 'Content',
 
 };
 </script>
@@ -16,7 +16,6 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .content {
-    min-height: 600px;
     display: flex;
     justify-content: center;
     align-items: center;

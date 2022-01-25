@@ -42,10 +42,6 @@ export default {
 <style scoped>
 .footer {
     background-color: rgb(55, 55, 55);
-    min-height: 100px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .logo {
