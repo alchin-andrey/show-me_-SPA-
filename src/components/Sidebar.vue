@@ -38,13 +38,8 @@
 </template>
 
 <script>
-import NavButton from '@/components/NavButton.vue';
-
 export default {
     name: "Sidebar",
-    components: { 
-        NavButton,
-    },
     data () {
         return {
             activePath: "/",

@@ -56,4 +56,8 @@ export default {
     justify-content: space-around;
 }
 
+.box:hover {
+    color: crimson;
+}
+
 </style>

@@ -6,7 +6,7 @@ import MySeries from '@/views/MySeries.vue'
 import Profile from '@/views/Profile.vue'
 import Calendar from '@/views/Calendar.vue'
 import Favorites from '@/views/Favorites.vue'
-import Login from '@/views/Login.vue'
+import Authorization from '@/views/Authorization.vue'
 import Register from '@/views/Register.vue'
 
 const routes = [
@@ -46,9 +46,9 @@ const routes = [
     component: Favorites
   },
   {
-    path: '/login',
-    name: 'login',
-    component: Login
+    path: '/authorization',
+    name: 'authorization',
+    component: Authorization
   },
   {
     path: '/register',

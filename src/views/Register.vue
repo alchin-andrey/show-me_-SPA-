@@ -2,30 +2,30 @@
 <div>
     <h4>Регистрация</h4>
     <form @submit.prevent="register">
-      <label for="name">Логин *</label>
-      <div>
-          <input id="name" type="text" v-model="name" required autofocus>
-      </div>
-      <label for="email" >E-Mail *</label>
-      <div>
-          <input id="email" type="email" v-model="email" required>
-      </div>
-      <label for="password">Пароль *</label>
-      <div>
-          <input id="password" type="password" v-model="password" required>
-      </div>
-      <label for="password-confirm">Повторите пароль *</label>
-      <div>
-          <input id="password-confirm" type="password" v-model="password_confirmation" required>
-      </div>
-      <div>
-          <button type="submit">Войти</button>
-      </div>
+        <my-input label="Логин *" v-model="login" way="login" type="text" placeholder="Ваш логин" name="login"/>
+        <my-input label="E-mail *" v-model="email" way="email" type="text" placeholder="Ваш e-mail" name="email"/>
+
+        <my-input label="Пароль *" v-model="password" way="password" type="password" placeholder="Ваш пароль" name="password"/>
+        <my-input label="Повторите пароль *" v-model="password_confirmation" way="password_confirmation" type="password" placeholder="Ваш пароль" name="password_confirmation"/>
+        <div class="flex">
+            <my-button label="Войти" type="submit"/>
+        </div>
     </form>
   </div>
 </template>
 
 <script>
+export default {
+    data () {
+        return {
+            login: '',
+            email: '',
+            password: '',
+            password_confirmation:'',
+        };
+    },
+};
+
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
@@ -43,5 +43,11 @@ input {
     height: 40px;
     margin-right: 30px;
     padding-left: 10px;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 </style>

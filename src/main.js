@@ -2,4 +2,29 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
 
-createApp(App).use(router).mount('#app')
+import NavButton from "@/components/ui/NavButton.vue";
+import MyInput from "@/components/ui/MyInput.vue";
+import MyButton from "@/components/ui/MyButton.vue";
+import MyTextarea from "@/components/ui/MyTextarea.vue";
+import MyCheckbox from "@/components/ui/MyCheckbox.vue";
+import MyRadio from "@/components/ui/MyRadio.vue";
+// import MySelect from "@/components/ui/MySelect.vue";
+
+const app = createApp(App);
+app.use(router);
+app.mount('#app');
+
+app.component('NavButton', NavButton);
+app.component('MyInput', MyInput);
+app.component('MyButton', MyButton);
+app.component('MyTextarea', MyTextarea);
+app.component('MyCheckbox', MyCheckbox);
+app.component('MyRadio', MyRadio);
+app.component('MySelect', MySelect);
+
+
+app.directive('focus', {
+    mounted(el) {
+        el.focus()
+    }
+});

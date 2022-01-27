@@ -2,11 +2,11 @@
     <header class="header">
         <div class="container">
             <div class="header-flex">
-                <div class="logo" @click="GoTo('home')"><img class="logo" alt="logo" src="@/assets/logo-max.png"></div>
+                <div class="logo" @click="GoTo('home')"><img class="logo" alt="logo" src="@/assets/img/logo.svg"></div>
                 <nav class="menu-wrapper">
-                    <div class="menu cur-point" @click="GoTo('series_catalog')" :class="{active: activePath === '/series_catalog'}">Каталог сериалов</div>
+                    <div class="menu cur-point" @click="GoTo('/series_catalog')" :class="{active: activePath === '/series_catalog'}">Каталог сериалов</div>
                 </nav>
-                <div class="login-flex cur-point" @click="GoTo('login')">
+                <div class="login-flex cur-point" @click="GoTo('/authorization')">
                     <div class="login-img"><img class="logo" alt="logo" src="@/assets/img/no_name.png"></div>
                     <div class="login-title cur-point" :class="{login_active: activePath === '/login'}">Войти</div>
                 </div>
@@ -51,7 +51,7 @@ export default {
 }
 
 .logo {
-    width: 80px;
+    width: 120px;
     cursor: pointer;
 }
 

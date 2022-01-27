@@ -23,11 +23,10 @@ export default {
 }
 
 .tile-s1 {
-    font-size: 31px;
-    line-height: 36px;
+    font-size: 25px;
+    line-height: 40px;
     font-weight: 400;
     letter-spacing: 0.07em;
-    text-transform: uppercase;
     color: #1A1A1A;
     text-align: center;
     padding-top: 96px;
