@@ -2,7 +2,7 @@
     <header class="header">
         <div class="container">
             <div class="header-flex">
-                <div class="logo" @click="GoTo('home')"><img class="logo" alt="logo" src="@/assets/img/logo.svg"></div>
+                <div class="logo" @click="GoTo('/')"><img class="logo" alt="logo" src="@/assets/img/logo.svg"></div>
                 <nav class="menu-wrapper">
                     <div class="menu cur-point" @click="GoTo('/series_catalog')" :class="{active: activePath === '/series_catalog'}">Каталог сериалов</div>
                 </nav>

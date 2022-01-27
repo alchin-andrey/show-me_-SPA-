@@ -2,7 +2,7 @@
 <footer class="footer">
         <div class="container">
             <div class="footer__flex">
-                <div class="logo" @click="GoTo('home')"><img class="logo" alt="logo" src="@/assets/img/logo.svg"></div>
+                <div class="logo" @click="GoTo('/')"><img class="logo" alt="logo" src="@/assets/img/logo.svg"></div>
             </div>
         </div>
     </footer>
