@@ -28,7 +28,7 @@
             <nav-button
                 @click="$router.push('/favorites')"
                 :class="{active: activePath === '/favorites'}"
-                img="@/assets/s1_search.svg"
+                img="@/img/icon/favorin.svg"
                 alt="img-4"
                 title="Избранное"
             >
@@ -62,6 +62,7 @@ export default {
 <style scoped>
 .sidebar {
     width: 100px;
+    background-color: rgb(199, 199, 199);
 }
 
 .menu-wrapper {

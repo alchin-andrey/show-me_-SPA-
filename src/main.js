@@ -8,7 +8,9 @@ import MyButton from "@/components/ui/MyButton.vue";
 import MyTextarea from "@/components/ui/MyTextarea.vue";
 import MyCheckbox from "@/components/ui/MyCheckbox.vue";
 import MyRadio from "@/components/ui/MyRadio.vue";
-// import MySelect from "@/components/ui/MySelect.vue";
+import MyRadioArr from "@/components/ui/MyRadioArr.vue";
+import MySelect from "@/components/ui/MySelect.vue";
+import MyDialog from "@/components/ui/MyDialog.vue";
 
 const app = createApp(App);
 app.use(router);
@@ -20,11 +22,6 @@ app.component('MyButton', MyButton);
 app.component('MyTextarea', MyTextarea);
 app.component('MyCheckbox', MyCheckbox);
 app.component('MyRadio', MyRadio);
+app.component('MyRadioArr', MyRadioArr);
 app.component('MySelect', MySelect);
-
-
-app.directive('focus', {
-    mounted(el) {
-        el.focus()
-    }
-});
+app.component('MyDialog', MyDialog);

@@ -1,18 +1,18 @@
 <template>
-    <div id="v-model-select-dynamic">
-        <label :for="way">{{label}}</label>
-        <select :id="way" v-model="inputValue">
-            <option v-for="item in options" :key="item" :value="item.value">{{item.text}}</option>
-        </select>
+    <div id="v-model-radiobutton">
+        <div v-for="item in options" :key="item">
+            <input type="radio" :id="item.name" v-model="picked" :name="item.name" :value="item.label" />
+            <label :for="item.name">{{item.label}}</label>
+        </div>
     </div>
 </template>
 
 <script>
 export default {
-    name: "MySelect",
+    name: "MyRadioArr",
     data () {
         return {
-            inputValue: '',
+            picked: '',
         };
     },
     props: {
@@ -35,10 +35,10 @@ export default {
     },
     watch: {
         modelValue () {
-            this.inputValue = this.modelValue;
+            this.picked = this.modelValue;
         },
-        inputValue () {
-            this.$emit('update:modelValue', this.inputValue);
+        picked () {
+            this.$emit('update:modelValue', this.picked);
         },
     },
 };
@@ -50,16 +50,16 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 
-select {
+input {
     background: #FFFFFF;
     border: 1px solid #C5D3DB;
     font-family: 'Roboto', sans-serif;
     font-style: normal;
     font-weight: 400;
-    font-size: 22px;
+    font-size: 16px;
     line-height: 149%;
     width: 50px;
-    height: 40px;
+    height: 20px;
 }
 
 </style>
