@@ -38,8 +38,6 @@ export default {
             shown: false,
         };
     },
-    props: {
-    },
     methods: {
         show () {
             this.shown = true;

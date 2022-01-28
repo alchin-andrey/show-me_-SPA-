@@ -1,6 +1,8 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
+import store from './store'
+
 
 import NavButton from "@/components/ui/NavButton.vue";
 import MyInput from "@/components/ui/MyInput.vue";
@@ -14,6 +16,7 @@ import MyDialog from "@/components/ui/MyDialog.vue";
 
 const app = createApp(App);
 app.use(router);
+app.use(store);
 app.mount('#app');
 
 app.component('NavButton', NavButton);

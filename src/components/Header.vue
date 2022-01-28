@@ -7,7 +7,7 @@
                     <div class="menu cur-point" @click="GoTo('/series_catalog')" :class="{active: activePath === '/series_catalog'}">Каталог сериалов</div>
                 </nav>
                 <div class="login-flex cur-point" @click="GoTo('/authorization')">
-                    <div class="login-img"><img class="logo" alt="logo" src="@/assets/img/no_name.png"></div>
+                    <div class="login-img"><img class="logo" alt="logo" src="@/assets/img/anonim2.svg"></div>
                     <div class="login-title cur-point" :class="{login_active: activePath === '/login'}">Войти</div>
                 </div>
             </div>
@@ -139,9 +139,9 @@ export default {
 }
 
 .login-img {
-    width: 60px;
-    height: 60px;
-    background-color: rgb(250, 245, 232);
+    width: 50px;
+    height: 50px;
+    background-color: rgb(223, 223, 223);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -150,7 +150,7 @@ export default {
 }
 
 .login-img img {
-    width: 55px;
+    width: 50px;
 }
 
 .login-flex:hover .login-title {

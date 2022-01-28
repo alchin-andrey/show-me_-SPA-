@@ -1,7 +1,7 @@
 <template>
     <div class="menu_item">
         <div class="box">
-            <div class="sidebar__img"><img :src="img" :alt="alt"></div>
+            <div class="sidebar__img"><img :src="icon" :alt="alt"></div>
             <div class="sidebar__text">{{title}}</div>
         </div>
     </div>
@@ -15,11 +15,22 @@ export default {
             activePath: "/",
         };
     },
-    props: [
-        'img',
-        'alt',
-        'title',
-        ],
+    props: {
+        icon: {
+            tupe: Object,
+            default () {
+                return null;
+            }
+        },
+        alt: {
+            type: String,
+            default: null,
+        },
+        title: {
+            type: String,
+            default: null,
+        },
+    },
     
     watch: {
         $route() {

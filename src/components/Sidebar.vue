@@ -4,7 +4,7 @@
             <nav-button
                 @click="$router.push('/my_series')"
                 :class="{active: activePath === '/my_series'}"
-                img="@/assets/s1_search.svg"
+                icon="/img/icon/my_series.png"
                 alt="img-1"
                 title="Мои сериалы"
             >
@@ -12,7 +12,7 @@
             <nav-button
                 @click="$router.push('/profile')"
                 :class="{active: activePath === '/profile'}"
-                img="@/assets/s1_search.svg"
+                icon="/img/icon/profile.png"
                 alt="img-2"
                 title="Профиль"
             >
@@ -20,7 +20,7 @@
             <nav-button
                 @click="$router.push('/calendar')"
                 :class="{active: activePath === '/calendar'}"
-                img="@/assets/s1_search.svg"
+                icon="/img/icon/calendar.png"
                 alt="img-3"
                 title="Календарь"
             >
@@ -28,7 +28,7 @@
             <nav-button
                 @click="$router.push('/favorites')"
                 :class="{active: activePath === '/favorites'}"
-                img="@/img/icon/favorin.svg"
+                icon="/img/icon/favorites.png"
                 alt="img-4"
                 title="Избранное"
             >

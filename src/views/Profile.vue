@@ -26,6 +26,13 @@
                     <template #footer></template>
                 </my-dialog>
             </div>
+            <div class="flex">
+                <my-button label="+" type="" @click="doInc"/>
+                <my-button label="-" type="" @click="doDec"/>
+                <my-button label="Обнулить" type="" @click="doZero"/>
+            </div>
+
+
         </form>
     </div>
     
@@ -72,6 +79,15 @@ export default {
         stopDialog() {
             this.$refs.dialog.shown = false;
         },
+        doInc () {
+            this.$store.commit('a/increment');
+        },
+        doDec () {
+            this.$store.commit('a/decrement');
+        },
+        doZero () {
+            this.$store.dispatch('a/setZero');
+        },
     },
 };
 
@@ -83,6 +99,8 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
+    margin: 10px;
+    gap: 10px;
 }
 
 </style>

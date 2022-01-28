@@ -29,7 +29,7 @@ export default {
     letter-spacing: 0.07em;
     color: #1A1A1A;
     text-align: center;
-    padding-top: 96px;
-    margin-bottom: 99px;
+    padding-top: 10px;
+    margin-bottom: 10px;
 }
 </style>
