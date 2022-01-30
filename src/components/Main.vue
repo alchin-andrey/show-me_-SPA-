@@ -29,6 +29,7 @@ export default {
     flex: 1 1 auto;
     display: flex;
     flex-direction: column;
+    width: 100%;
 }
 
 .flex {
@@ -43,6 +44,12 @@ export default {
     justify-content: center;
     background-color: rgb(255, 255, 255);
     flex: 1 1 auto;
+}
+
+.container2 {
+    width: 100%;
+ max-width: 1220px;
+ margin: 0 auto;
 }
 
 </style>

@@ -8,7 +8,7 @@
                 way="message" 
                 placeholder="Ваше сообщение" 
                 name="email"
-                rows="8"
+                rows="2"
             />
 
             <my-checkbox v-model="checked1" way="1" name="" value="Есть ребёнок" label="Есть ребёнок"/>

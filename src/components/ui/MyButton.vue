@@ -22,15 +22,15 @@ export default {
 <style scoped>
 
 .btm_form {
-    width: 120px;
-    height: 40px;
+    min-width: 120px;
+    height: 33px;
     border: 2px solid rgba(0, 0, 0, 0.05);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: rgb(39, 38, 38);
+    font-weight: 700;
+    color: rgb(8, 7, 7);
     background-color: rgb(228, 108, 108);
-    border-radius: 10px;
+    border-radius: 2px;
+    margin: 10px;
+    padding: 0 10px 0 10px;
 }
 
 .btm_form:hover {

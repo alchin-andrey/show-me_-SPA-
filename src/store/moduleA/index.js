@@ -2,11 +2,9 @@
 
 
 export default {
-  state () {
-    return {
+  state: () => ({
       count :0,
-    };
-  },
+  }),
   getters: { 
     doubleCount (state) {
         return state.count * 2;

@@ -1,59 +1,63 @@
 <template>
-    <div v-if="shown">
+  <div v-if="shown">
     <transition name="modal" class="modal">
-        <div class="modal-mask">
+      <div class="modal-mask">
         <div class="modal-wrapper" @click="shown = false">
-            <div class="modal-container" @click.stop>
+          <div class="modal-container" @click.stop>
+            <div div class="modal-container-2">
+              <div div class="modal-container-3">
+								<div div class="modal-container-4">
+									<div div class="modal-container-5">
+                <div class="modal-head">
+                  <slot name="header"> default header </slot>
+                </div>
 
-            <div class="modal-head">
-                <slot name="header">
-                default header
-                </slot>
-            </div>
+                <div class="modal-body">
+                  <slot name="body"> default body </slot>
+                </div>
 
-            <div class="modal-body">
-                <slot name="body">
-                default body
-                </slot>
+                <div class="modal-footer">
+                  <slot name="footer">
+                    <my-button
+                      class="modal-default-button"
+                      label="Ok"
+                      type=""
+                      @click="shown = false"
+                    />
+                    <my-button label="Отмена" type="" @click="shown = false" />
+                  </slot>
+                </div>
+								</div>
+								</div>
+              </div>
             </div>
-
-            <div class="modal-footer">
-                <slot name="footer">
-                <my-button class="modal-default-button" label="Ok" type="" @click="shown = false"/>
-                <my-button label="Отмена" type="" @click="shown = false"/>
-                </slot>
-            </div>
-            </div>
+          </div>
         </div>
-        </div>
+      </div>
     </transition>
-    </div>
+  </div>
 </template>
 
 <script>
 export default {
-    name: "MyDialog",
-    data () {
-        return {
-            shown: false,
-        };
+  name: "MyDialog",
+  data() {
+    return {
+      shown: false,
+    };
+  },
+  methods: {
+    show() {
+      this.shown = true;
     },
-    methods: {
-        show () {
-            this.shown = true;
-        },
-    },
+  },
 };
-    
 </script>
-
-    
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
 .modal {
-    color: rgb(255, 255, 255);
+  color: rgb(255, 255, 255);
 }
 
 .modal-mask {
@@ -74,15 +78,45 @@ export default {
 }
 
 .modal-container {
-  max-width: 500px;
+  max-width: 400px;
   margin: 0px auto;
-  padding: 20px 30px;
-  background-color: rgb(58, 58, 58);
+  background-color: rgb(0, 0, 0);
   border-radius: 2px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
   transition: all 0.3s ease;
   font-family: Helvetica, Arial, sans-serif;
+  /* background: repeating-linear-gradient(
+    45deg,
+    rgb(58, 58, 58),
+    rgb(58, 58, 58) 10px,
+    #d11919 10px,
+    #d11919 20px
+  ); */
+	border: 10px solid rgb(0, 0, 0);
 }
+
+.modal-container-2 {
+	border-right: 15px solid rgb(0, 0, 0);
+	border-left: 15px solid rgb(0, 0, 0);
+}
+
+.modal-container-3 {
+	border-top: 15px dashed rgb(220, 20, 20);
+	border-bottom: 15px dashed rgb(220, 20, 20);
+}
+.modal-container-4 {
+	border-top: 15px dashed rgb(220, 20, 20);
+	border-bottom: 15px dashed rgb(220, 20, 20);
+}
+
+.modal-container-5 {
+	border-top: 10px solid rgb(0, 0, 0);
+	border-bottom: 10px solid rgb(0, 0, 0);
+	
+  background-color: rgb(58, 58, 58);
+}
+
+
 
 .modal-head {
   margin-top: 0;
@@ -120,8 +154,6 @@ export default {
 }
 
 .modal-footer {
-    display: flex;
+  display: flex;
 }
-
-
 </style>

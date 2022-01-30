@@ -2,11 +2,11 @@
     <header class="header">
         <div class="container">
             <div class="header-flex">
-                <div class="logo" @click="GoTo('/')"><img class="logo" alt="logo" src="@/assets/img/logo.svg"></div>
+                <div class="logo" @click="goTo('/')"><img class="logo" alt="logo" src="@/assets/img/logo.svg"></div>
                 <nav class="menu-wrapper">
-                    <div class="menu cur-point" @click="GoTo('/series_catalog')" :class="{active: activePath === '/series_catalog'}">Каталог сериалов</div>
+                    <div class="menu cur-point" @click="goTo('/series_catalog')" :class="{active: activePath === '/series_catalog'}">Каталог сериалов</div>
                 </nav>
-                <div class="login-flex cur-point" @click="GoTo('/authorization')">
+                <div class="login-flex cur-point" @click="goTo('/authorization')">
                     <div class="login-img"><img class="logo" alt="logo" src="@/assets/img/anonim2.svg"></div>
                     <div class="login-title cur-point" :class="{login_active: activePath === '/login'}">Войти</div>
                 </div>
@@ -31,7 +31,7 @@ export default {
         },
     },
     methods: {
-        GoTo(route) {
+        goTo(route) {
             this.$router.push(route);
         },
     },
@@ -43,7 +43,7 @@ export default {
 
 .header {
     background-color: rgb(55, 55, 55);
-    min-height: 100px;
+    min-height: 80px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -108,7 +108,7 @@ export default {
     height: 2px;
     bottom: -8px;
     left: calc(50% - 50px);
-    background: linear-gradient(146.05deg, #ff3c00 0%, #FF6600 77.54%);
+    background: linear-gradient(146.05deg, #d81010 0%, #fa2011 77.54%);
     border-radius: 50px;
 }
 
@@ -119,7 +119,7 @@ export default {
     height: 2px;
     bottom: -8px;
     left: calc(50% - 50px);
-    background: linear-gradient(146.05deg, #ff3c00 0%, #FF6600 77.54%);
+    background: linear-gradient(146.05deg, #d81010 0%, #fa2011 77.54%);
     border-radius: 50px;
 }
 

@@ -9,6 +9,7 @@ import Favorites from '@/views/Favorites.vue'
 import Authorization from '@/views/Authorization.vue'
 import Register from '@/views/Register.vue'
 
+
 const routes = [
   {
     path: '/',
@@ -33,17 +34,27 @@ const routes = [
   {
     path: '/profile',
     name: 'profile',
-    component: Profile
+    component: Profile,
   },
   {
     path: '/calendar',
     name: 'calendar',
-    component: Calendar
+    component: Calendar,
+    meta: { 
+      requiresAuth: true
+    }
   },
   {
     path: '/favorites',
     name: 'favorites',
-    component: Favorites
+    component: Favorites,
+    beforeEnter: (to, from, next) => {
+      if (this.$store.user.isValidToken) {
+        next();
+      } else {
+        next('/authorization');
+      }
+    },
   },
   {
     path: '/authorization',
@@ -63,3 +74,5 @@ const router = createRouter({
 })
 
 export default router
+
+

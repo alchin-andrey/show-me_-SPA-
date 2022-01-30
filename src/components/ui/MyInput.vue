@@ -1,7 +1,7 @@
 <template>
     <div>
         <label :for="way">{{label}}</label>
-        <input :id="way" v-model="inputValue" :type="type" :placeholder="placeholder" :name="name"/>
+        <input :id="way" v-model="inputValue" :type="type" :placeholder="placeholder" :name="name" :required="Boolean(required)" :autofocus="Boolean(autofocus)"/>
     </div>
 </template>
 
@@ -38,6 +38,14 @@ export default {
             type: String,
             default: 'name',
         },
+        required: {
+            type: String,
+            default: 'false',
+        },
+        autofocus: {
+            type: String,
+            default: 'false',
+        },
     },
     watch: {
         modelValue () {
@@ -48,10 +56,10 @@ export default {
         },
     },
 };
-    
+
 </script>
 
-    
+
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
@@ -62,12 +70,10 @@ input {
     font-family: 'Roboto', sans-serif;
     font-style: normal;
     font-weight: 400;
-    font-size: 16px;
-    line-height: 149%;
-    width: 230px;
-    height: 40px;
-    margin-right: 30px;
-    padding-left: 10px;
+    width: 200px;
+    height: 35px;
+    padding:0 10px 0 10px;
+    margin: 5px;
 }
 
 </style>

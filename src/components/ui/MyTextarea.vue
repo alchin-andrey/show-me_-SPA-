@@ -1,7 +1,7 @@
 <template>
     <div>
         <label :for="way">{{label}}</label>
-        <textarea :id="way" v-model="inputValue" :placeholder="placeholder" :name="name" :rows="rows"></textarea>
+        <textarea :id="way" v-model="inputValue" :placeholder="placeholder" :name="name" :rows="Number(rows)"></textarea>
     </div>
 </template>
 
@@ -35,8 +35,8 @@ export default {
             default: 'name',
         },
         rows: {
-            type: Number,
-            default: '4',
+            type: String,
+            default: null,
         },
     },
     watch: {
@@ -65,7 +65,6 @@ textarea {
     font-size: 16px;
     line-height: 149%;
     width: 230px;
-    height: 40px;
     margin-right: 30px;
     padding-left: 10px;
 }

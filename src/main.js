@@ -17,7 +17,6 @@ import MyDialog from "@/components/ui/MyDialog.vue";
 const app = createApp(App);
 app.use(router);
 app.use(store);
-app.mount('#app');
 
 app.component('NavButton', NavButton);
 app.component('MyInput', MyInput);
@@ -28,3 +27,5 @@ app.component('MyRadio', MyRadio);
 app.component('MyRadioArr', MyRadioArr);
 app.component('MySelect', MySelect);
 app.component('MyDialog', MyDialog);
+
+app.mount('#app');

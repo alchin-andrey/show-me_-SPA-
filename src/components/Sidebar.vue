@@ -4,7 +4,7 @@
             <nav-button
                 @click="$router.push('/my_series')"
                 :class="{active: activePath === '/my_series'}"
-                icon="/img/icon/my_series.png"
+                icon="my_series.png"
                 alt="img-1"
                 title="Мои сериалы"
             >
@@ -12,7 +12,7 @@
             <nav-button
                 @click="$router.push('/profile')"
                 :class="{active: activePath === '/profile'}"
-                icon="/img/icon/profile.png"
+                icon="profile.png"
                 alt="img-2"
                 title="Профиль"
             >
@@ -20,7 +20,7 @@
             <nav-button
                 @click="$router.push('/calendar')"
                 :class="{active: activePath === '/calendar'}"
-                icon="/img/icon/calendar.png"
+                icon="calendar.png"
                 alt="img-3"
                 title="Календарь"
             >
@@ -28,7 +28,7 @@
             <nav-button
                 @click="$router.push('/favorites')"
                 :class="{active: activePath === '/favorites'}"
-                icon="/img/icon/favorites.png"
+                icon="favorites.png"
                 alt="img-4"
                 title="Избранное"
             >
@@ -38,6 +38,8 @@
 </template>
 
 <script>
+
+
 export default {
     name: "Sidebar",
     data () {
@@ -54,6 +56,7 @@ export default {
         GoTo(route) {
             this.$router.push(route);
         },
+        
     },
 };
 

@@ -1,7 +1,7 @@
 <template>
     <div class="menu_item">
         <div class="box">
-            <div class="sidebar__img"><img :src="icon" :alt="alt"></div>
+            <div class="sidebar__img"><img :src="getImage(icon)" :alt="alt"></div>
             <div class="sidebar__text">{{title}}</div>
         </div>
     </div>
@@ -17,10 +17,8 @@ export default {
     },
     props: {
         icon: {
-            tupe: Object,
-            default () {
-                return null;
-            }
+            type: String,
+            default: null,
         },
         alt: {
             type: String,
@@ -38,8 +36,8 @@ export default {
         },
     },
     methods: {
-        GoTo(route) {
-            this.$router.push(route);
+        getImage(name) {
+            return require(`@/assets/img/icon/${name}`);
         },
     },
 };

@@ -1,53 +1,94 @@
 <template>
-<div>
-    <h4>Регистрация</h4>
-    <form @submit.prevent="register">
-        <my-input label="Логин *" v-model="login" way="login" type="text" placeholder="Ваш логин" name="login"/>
-        <my-input label="E-mail *" v-model="email" way="email" type="text" placeholder="Ваш e-mail" name="email"/>
-
-        <my-input label="Пароль *" v-model="password" way="password" type="password" placeholder="Ваш пароль" name="password"/>
-        <my-input label="Повторите пароль *" v-model="password_confirmation" way="password_confirmation" type="password" placeholder="Ваш пароль" name="password_confirmation"/>
+    <div class="register">
+    <div class="title">Регистрация</div>
+    <form @submit.prevent="register" class="flex-form">
         <div class="flex">
-            <my-button label="Войти" type="submit"/>
+        <my-input
+            label="Логин *"
+            v-model="login"
+            way="login"
+            type="text"
+            placeholder="Ваш логин"
+            name="login"
+            required="true"
+            autofocus="true"
+        />
+        <my-input
+            label="E-mail *"
+            v-model="email"
+            way="email"
+            type="text"
+            placeholder="Ваш e-mail"
+            name="email"
+            required="true"
+        />
+
+        <my-input
+            label="Пароль *"
+            v-model="password"
+            way="password"
+            type="password"
+            placeholder="Ваш пароль"
+            name="password"
+            required="true"
+        />
+        <my-input
+            label="Повторите пароль *"
+            v-model="password_confirmation"
+            way="password_confirmation"
+            type="password"
+            placeholder="Ваш пароль"
+            name="password_confirmation"
+            required="true"
+        />
         </div>
-    </form>
-  </div>
+            <my-button label="Регистрация" type="submit" />
+        </form>
+    </div>
 </template>
 
 <script>
 export default {
-    data () {
+    data() {
         return {
-            login: '',
-            email: '',
-            password: '',
-            password_confirmation:'',
+        login: "",
+        email: "",
+        password: "",
+        password_confirmation: "",
+        focus: true
         };
     },
 };
-
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-input {
-    background: #FFFFFF;
-    border: 1px solid #C5D3DB;
-    font-family: 'Roboto', sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 149%;
-    /* or 24px */
-    width: 230px;
-    height: 40px;
-    margin-right: 30px;
-    padding-left: 10px;
+
+.register {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.flex-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .flex {
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-end;
     justify-content: center;
+}
+
+.title {
+    font-size: 22px;
+    padding: 10px;
 }
 </style>
