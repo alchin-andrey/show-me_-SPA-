@@ -3,6 +3,7 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 import NavButton from "@/components/ui/NavButton.vue";
 import MyInput from "@/components/ui/MyInput.vue";
@@ -13,6 +14,20 @@ import MyRadio from "@/components/ui/MyRadio.vue";
 import MyRadioArr from "@/components/ui/MyRadioArr.vue";
 import MySelect from "@/components/ui/MySelect.vue";
 import MyDialog from "@/components/ui/MyDialog.vue";
+
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+
+const firebaseConfig = {
+    apiKey: "AIzaSyDPhMmf3RI4uoZ9o-HC8ErobxtpyBoR5Ks",
+    authDomain: "show-to-me.firebaseapp.com",
+    projectId: "show-to-me",
+    storageBucket: "show-to-me.appspot.com",
+    messagingSenderId: "648756865481",
+    appId: "1:648756865481:web:e8cfb3eb45de685889e018"
+};
+
+initializeApp(firebaseConfig);
 
 const app = createApp(App);
 app.use(router);
@@ -28,4 +43,18 @@ app.component('MyRadioArr', MyRadioArr);
 app.component('MySelect', MySelect);
 app.component('MyDialog', MyDialog);
 
-app.mount('#app');
+
+
+const auth = getAuth();
+let mounted = false;
+onAuthStateChanged(auth, (user) => {
+    store.commit('user/setAuthUser', user);
+    console.log('onAuthStateChanged', user);
+    if (!mounted) {
+        app.mount('#app');
+        mounted = true;
+    }
+});
+
+
+

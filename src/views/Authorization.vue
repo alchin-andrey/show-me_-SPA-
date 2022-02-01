@@ -1,9 +1,9 @@
 <template>
     <div class="author">
-    <form class="login" @submit.prevent="login">
+    <form class="login">
         <div class="title">Войти</div>
 
-        <my-input label="" v-model="login" way="login" type="text" placeholder="Логин" name="login"/>
+        <my-input label="" v-model="email" way="email" type="text" placeholder="E-mail" name="email"/>
 
         <my-input label="" v-model="password" way="password" type="password" placeholder="Пароль" name="password"/>
             <my-button label="Войти" type="submit" @click="onAuthClick"/>
@@ -24,7 +24,7 @@
 export default {
     data () {
         return {
-            login: '',
+            email: '',
             password: '',
         };
     },
@@ -34,12 +34,12 @@ export default {
         },
         onAuthClick() {
             this.$store.dispatch("user/doAuth", {
-                login: this.login,
+                email: this.email,
                 password: this.password,
             }).then((status) => {
                 if (status === 'OK') {
                     this.$router.push('/my_series');
-                } else if (status === 'error') {
+                } else if (status !== 'OK') {
                     alert('Ошибка авторизации');
                 }
             });

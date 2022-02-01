@@ -6,7 +6,11 @@
                 <nav class="menu-wrapper">
                     <div class="menu cur-point" @click="goTo('/series_catalog')" :class="{active: activePath === '/series_catalog'}">Каталог сериалов</div>
                 </nav>
-                <div class="login-flex cur-point" @click="goTo('/authorization')">
+                <div class="login-flex cur-point" v-if="$store.getters['user/isAuth']">
+                    <div class="login-img"><img class="logo" alt="logo" src="@/assets/img/login.png"></div>
+                    <div class="login-title cur-point" @click="doLogout">Выход</div>
+                </div>
+                <div class="login-flex cur-point" @click="goTo('/authorization')" v-else >
                     <div class="login-img"><img class="logo" alt="logo" src="@/assets/img/anonim2.svg"></div>
                     <div class="login-title cur-point" :class="{login_active: activePath === '/login'}">Войти</div>
                 </div>
@@ -34,6 +38,9 @@ export default {
         goTo(route) {
             this.$router.push(route);
         },
+        doLogout () {
+            this.$store.dispatch('user/logout');
+        }
     },
 };
 </script>
@@ -151,6 +158,7 @@ export default {
 
 .login-img img {
     width: 50px;
+    border-radius: 50%;
 }
 
 .login-flex:hover .login-title {

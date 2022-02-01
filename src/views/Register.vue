@@ -1,7 +1,7 @@
 <template>
     <div class="register">
     <div class="title">Регистрация</div>
-    <form @submit.prevent="register" class="flex-form">
+    <form class="flex-form">
         <div class="flex">
         <my-input
             label=""
@@ -42,7 +42,7 @@
             required="true"
         />
         </div>
-            <my-button label="Регистрация" type="submit" />
+            <my-button label="Регистрация" type="submit" @click="onRegisterClick"/>
         </form>
     </div>
 </template>
@@ -57,6 +57,23 @@ export default {
         password_confirmation: "",
         focus: true
         };
+    },
+    methods: {
+        goTo(route) {
+            this.$router.push(route);
+        },
+        onRegisterClick() {
+            this.$store.dispatch("user/doCreate", {
+                email: this.email,
+                password: this.password,
+            }).then((status) => {
+                if (status === 'OK') {
+                    this.$router.push('/my_series');
+                } else if (status !== 'OK') {
+                    alert('Ошибка регистрации');
+                }
+            });
+        },
     },
 };
 </script>
