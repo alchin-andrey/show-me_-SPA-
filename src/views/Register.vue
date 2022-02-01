@@ -4,40 +4,40 @@
     <form @submit.prevent="register" class="flex-form">
         <div class="flex">
         <my-input
-            label="Логин *"
+            label=""
             v-model="login"
             way="login"
             type="text"
-            placeholder="Ваш логин"
+            placeholder="Логин *"
             name="login"
             required="true"
             autofocus="true"
         />
         <my-input
-            label="E-mail *"
+            label=""
             v-model="email"
             way="email"
             type="text"
-            placeholder="Ваш e-mail"
+            placeholder="E-mail *"
             name="email"
             required="true"
         />
 
         <my-input
-            label="Пароль *"
+            label=""
             v-model="password"
             way="password"
             type="password"
-            placeholder="Ваш пароль"
+            placeholder="Пароль *"
             name="password"
             required="true"
         />
         <my-input
-            label="Повторите пароль *"
+            label=""
             v-model="password_confirmation"
             way="password_confirmation"
             type="password"
-            placeholder="Ваш пароль"
+            placeholder="Повторите пароль *"
             name="password_confirmation"
             required="true"
         />
@@ -80,15 +80,10 @@ export default {
     justify-content: center;
 }
 
-.flex {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    justify-content: center;
-}
 
 .title {
-    font-size: 22px;
-    padding: 10px;
+    font-size: 24px;
+    font-weight: 600;
+    padding: 5px;
 }
 </style>

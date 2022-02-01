@@ -25,7 +25,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .main {
-    background-color: rgb(54, 55, 59);
+    background-color: rgb(55, 60, 65);
     flex: 1 1 auto;
     display: flex;
     flex-direction: column;

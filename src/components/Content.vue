@@ -30,7 +30,8 @@ export default {
 .tile-s1 {
     font-size: 16px;
     line-height: 20px;
-    font-weight: 400;
+    font-weight: 500;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #1A1A1A;
 }
 </style>

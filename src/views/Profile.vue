@@ -3,7 +3,7 @@
         <div>Анкета (зарегестрированного пользователя)</div>
         <form class="login" @submit.prevent="login">
             <my-textarea
-                label="Сообщение" 
+                label="Сообщение:" 
                 v-model="message" 
                 way="message" 
                 placeholder="Ваше сообщение" 
@@ -11,21 +11,30 @@
                 rows="2"
             />
 
+            <my-input
+            label=""
+            v-model="password_confirmation"
+            way="password_confirmation"
+            type="date"
+            placeholder="Повторите пароль *"
+            name="password_confirmation"
+        />
+
             <my-checkbox v-model="checked1" way="1" name="" value="Есть ребёнок" label="Есть ребёнок"/>
             <my-checkbox v-model="checked2" way="2" name="" value="Женат" label="Женат"/>   
-            
+            <div class="flex">
             <my-radio-arr :options="radioOprions" v-model="picked" way="yes"/>
-            
+            </div>
             <my-select :options="selectOprions" v-model="selected" way="select" label="Выбрать цифру"/>
 
-            <div class="flex">
+
                 <my-button label="Диалог" type="" @click="showDialog"/>
                 <my-dialog ref="dialog">
                     <template #header>Заголовок</template>
-                    <template #body>Текст</template>
+                    <template #body>Вы уверены в своей уверенности?</template>
                     <template #footer></template>
                 </my-dialog>
-            </div>
+
             <div class="flex">
                 <my-button label="+" type="" @click="doInc"/>
                 <my-button label="-" type="" @click="doDec"/>

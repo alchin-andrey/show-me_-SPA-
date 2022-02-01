@@ -3,9 +3,9 @@
     <form class="login" @submit.prevent="login">
         <div class="title">Войти</div>
 
-        <my-input label="" v-model="login" way="login" type="text" placeholder="Ваш логин" name="login"/>
+        <my-input label="" v-model="login" way="login" type="text" placeholder="Логин" name="login"/>
 
-        <my-input label="" v-model="password" way="password" type="password" placeholder="Ваш пароль" name="password"/>
+        <my-input label="" v-model="password" way="password" type="password" placeholder="Пароль" name="password"/>
             <my-button label="Войти" type="submit" @click="onAuthClick"/>
         <hr/>
         <div>
@@ -54,8 +54,9 @@ export default {
 <style scoped>
 
 .title {
-    font-size: 22px;
-    padding: 10px;
+    font-size: 24px;
+    font-weight: 600;
+    padding: 5px;
 }
 
 .author {
@@ -68,17 +69,21 @@ export default {
 }
 
 
+
+
 .reg {
-    color: rgb(64, 80, 221);
+    color: rgb(32, 104, 167);
     cursor: pointer;
+    font-weight: 700;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 .reg:hover {
-    color: rgb(221, 135, 64);
-
+    color: rgb(215, 30, 60);
 }
 
 /* .flex {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
 } */

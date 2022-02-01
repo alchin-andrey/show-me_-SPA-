@@ -50,7 +50,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 
-select {
+/* select {
     background: #FFFFFF;
     border: 1px solid #C5D3DB;
     font-family: 'Roboto', sans-serif;
@@ -60,6 +60,26 @@ select {
     line-height: 149%;
     width: 50px;
     height: 40px;
+} */
+
+
+select {
+    color: rgb(255, 255, 255);
+    background-color: rgb(54, 54, 54);
+    border-top: 5px solid rgb(215, 30, 60);
+    border-bottom: 2px solid rgb(54, 54, 54);
+    border-right: 2px solid rgb(54, 54, 54);
+    border-left: 2px solid rgb(54, 54, 54);
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    height: 25px;
+    margin: 5px 0 5px 10px;
+}
+
+::placeholder {
+    color: rgb(202, 203, 204);
+    text-align: center;
 }
 
 </style>

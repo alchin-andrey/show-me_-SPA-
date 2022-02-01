@@ -2,7 +2,7 @@
     <header class="header">
         <div class="container">
             <div class="header-flex">
-                <div class="logo" @click="goTo('/')"><img class="logo" alt="logo" src="@/assets/img/logo.svg"></div>
+                <div class="logo" @click="goTo('/')"><img class="logo" alt="logo" src="@/assets/img/logo_3.svg"></div>
                 <nav class="menu-wrapper">
                     <div class="menu cur-point" @click="goTo('/series_catalog')" :class="{active: activePath === '/series_catalog'}">Каталог сериалов</div>
                 </nav>
@@ -42,12 +42,12 @@ export default {
 <style scoped>
 
 .header {
-    background-color: rgb(55, 55, 55);
+    background-color: rgb(37, 43, 49);
     min-height: 80px;
     display: flex;
     justify-content: center;
     align-items: center;
-    border-bottom: 5px solid rgb(209, 18, 18);
+    border-bottom: 5px solid rgb(215, 30, 60);
 }
 
 .logo {
@@ -104,22 +104,22 @@ export default {
 .menu:hover::before {
     content: '';
     position: absolute;
-    width: 100px;
-    height: 2px;
+    width: 200px;
+    height: 3px;
     bottom: -8px;
-    left: calc(50% - 50px);
-    background: linear-gradient(146.05deg, #d81010 0%, #fa2011 77.54%);
+    left: calc(50% - 100px);
+    background: rgb(215, 30, 60);
     border-radius: 50px;
 }
 
 .active:before {
     content: '';
     position: absolute;
-    width: 100px;
-    height: 2px;
+    width: 200px;
+    height: 3px;
     bottom: -8px;
-    left: calc(50% - 50px);
-    background: linear-gradient(146.05deg, #d81010 0%, #fa2011 77.54%);
+    left: calc(50% - 100px);
+    background: rgb(215, 30, 60);
     border-radius: 50px;
 }
 

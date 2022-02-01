@@ -57,7 +57,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .modal {
-  color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
 }
 
 .modal-mask {
@@ -80,9 +80,9 @@ export default {
 .modal-container {
   max-width: 400px;
   margin: 0px auto;
-  background-color: rgb(0, 0, 0);
+  background-color: rgb(37, 43, 49);
   border-radius: 2px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
+  box-shadow: 0 2px 8px rgb(37, 43, 49);
   transition: all 0.3s ease;
   font-family: Helvetica, Arial, sans-serif;
   /* background: repeating-linear-gradient(
@@ -92,38 +92,44 @@ export default {
     #d11919 10px,
     #d11919 20px
   ); */
-	border: 10px solid rgb(0, 0, 0);
+	border: 10px solid rgb(37, 43, 49);
 }
 
 .modal-container-2 {
-	border-right: 15px solid rgb(0, 0, 0);
-	border-left: 15px solid rgb(0, 0, 0);
+	border-right: 15px solid rgb(37, 43, 49);
+	border-left: 15px solid rgb(37, 43, 49);
 }
 
 .modal-container-3 {
-	border-top: 15px dashed rgb(220, 20, 20);
-	border-bottom: 15px dashed rgb(220, 20, 20);
+	border-top: 15px dashed rgb(205, 205, 205);
+	border-bottom: 15px dashed rgb(205, 205, 205);
+  margin-top: -1px;
+  margin-bottom: -1px;
 }
 .modal-container-4 {
-	border-top: 15px dashed rgb(220, 20, 20);
-	border-bottom: 15px dashed rgb(220, 20, 20);
+	border-top: 15px dashed rgb(205, 205, 205);
+	border-bottom: 15px dashed rgb(205, 205, 205);
+  margin-top: -1px;
+  margin-bottom: -1px;
 }
 
 .modal-container-5 {
-	border-top: 10px solid rgb(0, 0, 0);
-	border-bottom: 10px solid rgb(0, 0, 0);
+	border-top: 10px solid rgb(37, 43, 49);
+	border-bottom: 10px solid rgb(37, 43, 49);
 	
-  background-color: rgb(58, 58, 58);
+  background-color: rgb(255, 255, 255);
 }
 
 
 
 .modal-head {
-  margin-top: 0;
+  font-size: 20px;
+  font-weight: 600;
+  padding: 10px;
 }
 
 .modal-body {
-  margin: 20px 0;
+  padding: 10px 0;
 }
 
 .modal-default-button {

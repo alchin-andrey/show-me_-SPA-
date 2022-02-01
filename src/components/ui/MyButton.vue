@@ -12,7 +12,7 @@ export default {
         },
         type: {
             type: String,
-            default: 'submit',
+            default: 'button',
         },
     },
 };
@@ -22,19 +22,32 @@ export default {
 <style scoped>
 
 .btm_form {
-    min-width: 120px;
-    height: 33px;
-    border: 2px solid rgba(0, 0, 0, 0.05);
-    font-weight: 700;
-    color: rgb(8, 7, 7);
-    background-color: rgb(228, 108, 108);
-    border-radius: 2px;
-    margin: 10px;
+    min-width: 30px;
+    height: 30px;
+    font-weight: 600;
+    color: rgb(255, 255, 255);
+    border-radius: 4px;
+    margin: 5px;
     padding: 0 10px 0 10px;
+    background-color: rgb(35, 75, 110);
+    border: 3px solid rgb(35, 75, 110);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .btm_form:hover {
-    background-color: crimson;
+    background-color: rgb(255, 255, 255);
+    border: 3px solid rgb(32, 32, 32);
+    color: rgb(0, 0, 0);
+}
+
+.btm_form:active {
+    background-color: rgb(215, 30, 60);
+    border: 3px solid rgb(215, 30, 60);
+    color: rgb(255, 255, 255);
 }
 
 </style>
+
+

@@ -65,15 +65,24 @@ export default {
 <style scoped>
 
 input {
-    background: #FFFFFF;
-    border: 1px solid #C5D3DB;
+    color: rgb(255, 255, 255);
+    background-color: rgb(54, 54, 54);
+    border-top: 5px solid rgb(215, 30, 60);
+    border-bottom: 2px solid rgb(54, 54, 54);
+    border-right: 2px solid rgb(54, 54, 54);
+    border-left: 2px solid rgb(54, 54, 54);
     font-family: 'Roboto', sans-serif;
     font-style: normal;
     font-weight: 400;
-    width: 200px;
+    max-width: 200px;
     height: 35px;
     padding:0 10px 0 10px;
     margin: 5px;
+}
+
+::placeholder {
+    color: rgb(202, 203, 204);
+    text-align: center;
 }
 
 </style>

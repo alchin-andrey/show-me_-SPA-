@@ -47,10 +47,9 @@ export default {
 <style scoped>
 .menu_item {
     font-family: "ReformaGroteskMediumC", sans-serif;
-    font-size: 12px;
+    font-size: 14px;
     line-height: 100%;
-    font-weight: 500;
-    letter-spacing: 0.105em;
+    font-weight: 600;
     color: #000000;
     cursor: pointer;
 }
@@ -63,6 +62,7 @@ export default {
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .box:hover {

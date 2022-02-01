@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class = "flex">
         <label :for="way">{{label}}</label>
         <textarea :id="way" v-model="inputValue" :placeholder="placeholder" :name="name" :rows="Number(rows)"></textarea>
     </div>
@@ -56,7 +56,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 
-textarea {
+/* textarea {
     background: #FFFFFF;
     border: 1px solid #C5D3DB;
     font-family: 'Roboto', sans-serif;
@@ -67,6 +67,32 @@ textarea {
     width: 230px;
     margin-right: 30px;
     padding-left: 10px;
+} */
+
+.flex {
+ display: flex;
+ align-items: flex-start;
+ justify-content: center;
+}
+
+textarea {
+    color: rgb(255, 255, 255);
+    background-color: rgb(54, 54, 54);
+    border-top: 5px solid rgb(215, 30, 60);
+    border-bottom: 2px solid rgb(54, 54, 54);
+    border-right: 2px solid rgb(54, 54, 54);
+    border-left: 2px solid rgb(54, 54, 54);
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    width: 100%;
+    padding:0 10px 0 10px;
+    margin: 0px;
+}
+
+::placeholder {
+    color: rgb(202, 203, 204);
+    text-align: start;
 }
 
 </style>

@@ -32,8 +32,8 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .footer {
-    background-color: rgb(55, 55, 55);
-    border-top: 5px solid rgb(209, 18, 18);
+    background-color: rgb(37, 43, 49);
+    border-top: 5px solid rgb(215, 30, 60);
 }
 
 .logo {
