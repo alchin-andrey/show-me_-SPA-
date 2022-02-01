@@ -1,7 +1,7 @@
 <template>
     <div>
         <label :for="way">{{label}}</label>
-        <input :id="way" v-model="inputValue" :type="type" :placeholder="placeholder" :name="name" :required="Boolean(required)" :autofocus="Boolean(autofocus)"/>
+        <input :id="way" v-model="inputValue" :type="type" :placeholder="placeholder" :name="name" :required="required" :autofocus="autofocus"/>
     </div>
 </template>
 
@@ -39,12 +39,12 @@ export default {
             default: 'name',
         },
         required: {
-            type: String,
-            default: 'false',
+            type: Boolean,
+            default: false,
         },
         autofocus: {
-            type: String,
-            default: 'false',
+            type: Boolean,
+            default: false,
         },
     },
     watch: {

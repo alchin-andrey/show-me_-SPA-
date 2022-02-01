@@ -13,11 +13,11 @@
 
             <my-input
             label=""
-            v-model="password_confirmation"
-            way="password_confirmation"
+            v-model="birth_date"
+            way="birth_date"
             type="date"
             placeholder="Повторите пароль *"
-            name="password_confirmation"
+            name="birth_date"
         />
 
             <my-checkbox v-model="checked1" way="1" name="" value="Есть ребёнок" label="Есть ребёнок"/>
@@ -52,6 +52,7 @@ export default {
     data () {
         return {
             message: null,
+            birth_date: null,
             checked1: false,
             checked2: false,
             picked: null,

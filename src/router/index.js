@@ -8,6 +8,7 @@ import Calendar from '@/views/Calendar.vue'
 import Favorites from '@/views/Favorites.vue'
 import Authorization from '@/views/Authorization.vue'
 import Register from '@/views/Register.vue'
+import store from '@/store'
 
 
 const routes = [
@@ -29,27 +30,45 @@ const routes = [
   {
     path: '/my_series',
     name: 'my_series',
-    component: MySeries
+    component: MySeries,
+    beforeEnter: (to, from, next) => {
+      if (store.getters['user/isAuth']) {
+        next();
+      } else {
+        next('/authorization');
+      }
+    },
   },
   {
     path: '/profile',
     name: 'profile',
     component: Profile,
+    beforeEnter: (to, from, next) => {
+      if (store.getters['user/isAuth']) {
+        next();
+      } else {
+        next('/authorization');
+      }
+    },
   },
   {
     path: '/calendar',
     name: 'calendar',
     component: Calendar,
-    meta: { 
-      requiresAuth: true
-    }
+    beforeEnter: (to, from, next) => {
+      if (store.getters['user/isAuth']) {
+        next();
+      } else {
+        next('/authorization');
+      }
+    },
   },
   {
     path: '/favorites',
     name: 'favorites',
     component: Favorites,
     beforeEnter: (to, from, next) => {
-      if (this.$store.user.isValidToken) {
+      if (store.getters['user/isAuth']) {
         next();
       } else {
         next('/authorization');
