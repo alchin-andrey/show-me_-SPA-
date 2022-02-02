@@ -11,23 +11,23 @@ export default {
         name: '',
         user: {},
     }),
-    getters: { 
-        isAuth(state) {
+    getters: {
+        isAuth (state) {
             return isValidToken(state.user.accessToken);
         },
-        userEmail(state) {
+        userEmail (state) {
             return state.user.email;
         }
     },
     mutations: {
-        setAuthUser(state, data) {
+        setAuthUser (state, data) {
             state.user = data || {};
         }
     },
     actions: {
         doAuth (context, data) {
             const auth = getAuth();
-            
+
             return signInWithEmailAndPassword(auth, data.email, data.password)
             .then((userCredential) => {
                 context.state.user = userCredential.user;

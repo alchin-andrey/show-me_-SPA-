@@ -8,7 +8,7 @@
                 </nav>
                 <div class="login-flex cur-point" v-if="$store.getters['user/isAuth']">
                     <div class="login-img"><img class="logo" alt="logo" src="@/assets/img/login.png"></div>
-                    <div class="login-title cur-point" @click="doLogout">Выход</div>
+                    <div class="login-title cur-point" @click="doLogout">{{$store.getters['user/userEmail'].split('@')[0]}}</div>
                 </div>
                 <div class="login-flex cur-point" @click="goTo('/authorization')" v-else >
                     <div class="login-img"><img class="logo" alt="logo" src="@/assets/img/anonim2.svg"></div>

@@ -1,9 +1,21 @@
 <template>
   <div class="about">
-    Избранное (зарегестрированного пользователя)
+    <Posts/>
+    <PostsForm/>
   </div>
 </template>
 
 <script>
+
+import Posts from "@/components/Posts.vue";
+import PostsForm from "@/components/PostsForm.vue";
+
+export default {
+    name: "Favorites",
+    components: {
+        Posts,
+        PostsForm,
+    },
+};
 
 </script>
