@@ -30,7 +30,7 @@ const firebaseConfig = {
 initializeApp(firebaseConfig);
 
 const app = createApp(App);
-app.use(router);
+
 app.use(store);
 
 app.component('NavButton', NavButton);
@@ -51,6 +51,7 @@ onAuthStateChanged(auth, (user) => {
     store.commit('user/setAuthUser', user);
     console.log('onAuthStateChanged', user);
     if (!mounted) {
+        app.use(router);
         app.mount('#app');
         mounted = true;
     }

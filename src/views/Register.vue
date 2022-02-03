@@ -1,7 +1,7 @@
 <template>
     <div class="register">
     <div class="title">Регистрация</div>
-    <form class="flex-form">
+    <form class="flex-form" @submit.prevent>
         <div class="flex">
         <my-input
             label=""

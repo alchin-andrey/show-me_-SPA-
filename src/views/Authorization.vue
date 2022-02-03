@@ -1,6 +1,6 @@
 <template>
     <div class="author">
-    <form class="login">
+    <form class="login" @submit.prevent>
         <div class="title">Войти</div>
 
         <my-input label="" v-model="email" way="email" type="text" placeholder="E-mail" name="email"/>

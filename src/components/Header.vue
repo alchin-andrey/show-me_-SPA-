@@ -7,11 +7,11 @@
                     <div class="menu cur-point" @click="goTo('/series_catalog')" :class="{active: activePath === '/series_catalog'}">Каталог сериалов</div>
                 </nav>
                 <div class="login-flex cur-point" v-if="$store.getters['user/isAuth']">
-                    <div class="login-img"><img class="logo" alt="logo" src="@/assets/img/login.png"></div>
+                    <div class="login-img"><img class="logo" alt="logo" src="@/assets/img/login.svg"></div>
                     <div class="login-title cur-point" @click="showDialog">{{$store.getters['user/userEmail'].split('@')[0]}}</div>
                 </div>
                 <div class="login-flex cur-point" @click="goTo('/authorization')" v-else >
-                    <div class="login-img"><img class="logo" alt="logo" src="@/assets/img/anonim2.svg"></div>
+                    <div class="login-img"><img class="logo" alt="logo" src="@/assets/img/anonim.svg"></div>
                     <div class="login-title cur-point" :class="{login_active: activePath === '/login'}">Войти</div>
                 </div>
             </div>
@@ -160,16 +160,17 @@ export default {
     width: 50px;
     height: 50px;
     background-color: rgb(223, 223, 223);
-    border-radius: 50%;
+    border-radius: 30%;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-right: 10px;
+    border-bottom: 2px solid rgb(0, 0, 0);
 }
 
 .login-img img {
     width: 50px;
-    border-radius: 50%;
+    border-radius: 30%;
 }
 
 .login-flex:hover .login-title {
