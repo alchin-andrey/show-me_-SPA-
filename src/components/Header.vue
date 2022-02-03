@@ -8,7 +8,7 @@
                 </nav>
                 <div class="login-flex cur-point" v-if="$store.getters['user/isAuth']">
                     <div class="login-img"><img class="logo" alt="logo" src="@/assets/img/login.png"></div>
-                    <div class="login-title cur-point" @click="doLogout">{{$store.getters['user/userEmail'].split('@')[0]}}</div>
+                    <div class="login-title cur-point" @click="showDialog">{{$store.getters['user/userEmail'].split('@')[0]}}</div>
                 </div>
                 <div class="login-flex cur-point" @click="goTo('/authorization')" v-else >
                     <div class="login-img"><img class="logo" alt="logo" src="@/assets/img/anonim2.svg"></div>
@@ -16,6 +16,11 @@
                 </div>
             </div>
         </div>
+        <my-dialog ref="dialog">
+                    <template #header>Задумайтесь!</template>
+                    <template #body>Вы уверены что хотите выйти?</template>
+                    <template #footer></template>
+                </my-dialog>
     </header>
 
 
@@ -38,9 +43,15 @@ export default {
         goTo(route) {
             this.$router.push(route);
         },
+        showDialog() {
+            this.$refs.dialog.show();
+        },
+        stopDialog() {
+            this.$refs.dialog.shown = false;
+        },
         doLogout () {
             this.$store.dispatch('user/logout');
-        }
+        },
     },
 };
 </script>

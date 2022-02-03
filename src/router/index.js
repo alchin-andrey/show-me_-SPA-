@@ -78,7 +78,14 @@ const routes = [
   {
     path: '/authorization',
     name: 'authorization',
-    component: Authorization
+    component: Authorization,
+    beforeEnter: (to, from, next) => {
+      if (!store.getters['user/isAuth']) {
+        next();
+      } else {
+        next('/authorization');
+      }
+    },
   },
   {
     path: '/register',

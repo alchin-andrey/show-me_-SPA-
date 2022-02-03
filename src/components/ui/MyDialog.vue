@@ -18,13 +18,16 @@
 
                 <div class="modal-footer">
                   <slot name="footer">
+                    <my-button 
+                    class="modal-default-button" 
+                    label="Да, абсолютли!" 
+                    type="button" 
+                    @click="doLogout"/>
                     <my-button
-                      class="modal-default-button"
-                      label="Ok"
-                      type=""
-                      @click="shown = false"
-                    />
-                    <my-button label="Отмена" type="" @click="shown = false" />
+                    class="modal-default-button"
+                    label="Ноуп" 
+                    type="button" 
+                    @click="shown = false"/>
                   </slot>
                 </div>
 								</div>
@@ -50,12 +53,18 @@ export default {
     show() {
       this.shown = true;
     },
+    doLogout () {
+            this.$store.dispatch('user/logout');
+            this.$router.push('/');
+            this.shown = false;
+        },
   },
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+
 .modal {
   color: rgb(0, 0, 0);
 }
