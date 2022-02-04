@@ -3,7 +3,7 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 
-import { getAuth, onAuthStateChanged } from "firebase/auth";
+
 
 import NavButton from "@/components/ui/NavButton.vue";
 import MyInput from "@/components/ui/MyInput.vue";
@@ -17,10 +17,13 @@ import MyDialog from "@/components/ui/MyDialog.vue";
 
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
+import { getDatabase, ref, onValue } from "firebase/database";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 const firebaseConfig = {
     apiKey: "AIzaSyDPhMmf3RI4uoZ9o-HC8ErobxtpyBoR5Ks",
     authDomain: "show-to-me.firebaseapp.com",
+    databaseURL: "https://show-to-me-default-rtdb.europe-west1.firebasedatabase.app/",
     projectId: "show-to-me",
     storageBucket: "show-to-me.appspot.com",
     messagingSenderId: "648756865481",
@@ -29,24 +32,29 @@ const firebaseConfig = {
 
 initializeApp(firebaseConfig);
 
-const app = createApp(App);
 
-app.use(store);
 
-app.component('NavButton', NavButton);
-app.component('MyInput', MyInput);
-app.component('MyButton', MyButton);
-app.component('MyTextarea', MyTextarea);
-app.component('MyCheckbox', MyCheckbox);
-app.component('MyRadio', MyRadio);
-app.component('MyRadioArr', MyRadioArr);
-app.component('MySelect', MySelect);
-app.component('MyDialog', MyDialog);
+
 
 
 
 const auth = getAuth();
 let mounted = false;
+
+const db = getDatabase();
+
+const path = '/posts/';
+onValue(ref(db, path), (snapshot) => {
+console.log('onValue for', path, snapshot.val());
+  store.commit('posts/clear');
+  const postsObject = snapshot.val();
+  for (const [key, value] of Object.entries(postsObject)) {
+    store.commit('posts/addPost', value);
+  }
+});
+
+
+
 onAuthStateChanged(auth, (user) => {
     store.commit('user/setAuthUser', user);
     console.log('onAuthStateChanged', user);
@@ -57,5 +65,17 @@ onAuthStateChanged(auth, (user) => {
     }
 });
 
+
+const app = createApp(App);
+app.use(store);
+app.component('NavButton', NavButton);
+app.component('MyInput', MyInput);
+app.component('MyButton', MyButton);
+app.component('MyTextarea', MyTextarea);
+app.component('MyCheckbox', MyCheckbox);
+app.component('MyRadio', MyRadio);
+app.component('MyRadioArr', MyRadioArr);
+app.component('MySelect', MySelect);
+app.component('MyDialog', MyDialog);
 
 

@@ -1,6 +1,6 @@
 <template>
         <div>
-            <div class="tile">Количество постов: {{$store.getters['posts/count']}}</div>
+            <div class="tile">Количество постов: {{$store.getters['postsJs/count']}}</div>
             <div class="tile-2">Из них избранные:</div>
             <div class="flex" v-for="post in postArray" :key="post.id">
                 {{post.id}}: {{post.title}}
@@ -11,18 +11,18 @@
 
 <script>
 export default {
-    name: 'Posts',
+    name: 'JsonPost',
     computed: {
         postArray() {
-            return this.$store.getters['posts/everyTen'];
+            return this.$store.getters['postsJs/everyTen'];
         },
     },
         created() {
-        this.$store.dispatch("posts/firstLoadPosts");
+        this.$store.dispatch("postsJs/firstLoadPosts");
     },
     methods: {
         doLoadPosts() {
-        this.$store.dispatch("posts/loadPosts");
+        this.$store.dispatch("postsJs/loadPosts");
     },
     }
 };

@@ -33,6 +33,22 @@
                 title="Избранное"
             >
             </nav-button>
+            <nav-button
+                @click="$router.push('/posts')"
+                :class="{active: activePath === '/posts'}"
+                icon="favorites.png"
+                alt="img-5"
+                title="Посты"
+            >
+            </nav-button>
+            <nav-button
+                @click="$router.push('/new_post')"
+                :class="{active: activePath === '/new_post'}"
+                icon="favorites.png"
+                alt="img-6"
+                title="Добавить пост"
+            >
+            </nav-button>
         </nav>
     </div>
 </template>

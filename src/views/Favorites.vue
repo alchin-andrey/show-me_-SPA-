@@ -1,21 +1,20 @@
 <template>
   <div class="about">
-    <Posts/>
-    <PostsForm/>
+    <JsonPost/>
+    <JsonPostsForm/>
   </div>
 </template>
 
 <script>
 
-import Posts from "@/components/Posts.vue";
-import PostsForm from "@/components/PostsForm.vue";
+import JsonPost from "@/components/JsonPost.vue";
+import JsonPostsForm from "@/components/JsonPostsForm.vue";
 
 export default {
     name: "Favorites",
     components: {
-        Posts,
-        PostsForm,
+        JsonPost,
+        JsonPostsForm,
     },
 };
-
 </script>

@@ -14,7 +14,7 @@
 
 <script>
 export default {
-    name: 'PostsForm',
+    name: 'JsonPostsForm',
     data () {
         return {
             message: '',
@@ -22,7 +22,7 @@ export default {
     },
     methods: {
         onAdd() {
-        this.$store.dispatch("posts/createPost", { title: this.message });
+        this.$store.dispatch("postsJs/createPost", { title: this.message });
         this.message = '';
         },
     },

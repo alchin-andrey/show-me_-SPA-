@@ -8,6 +8,12 @@ import Calendar from '@/views/Calendar.vue'
 import Favorites from '@/views/Favorites.vue'
 import Authorization from '@/views/Authorization.vue'
 import Register from '@/views/Register.vue'
+
+import Posts from '@/views/Posts.vue'
+import AddPostForm from '@/views/AddPostForm.vue'
+import PostForm from '@/components/PostForm.vue'
+import PostEdit from '@/components/PostEdit.vue'
+
 import store from '@/store'
 
 
@@ -91,6 +97,33 @@ const routes = [
     path: '/register',
     name: 'register',
     component: Register
+  },
+  {
+    path: '/posts',
+    name: 'news_posts',
+    component: Posts,
+    children: [
+      {
+        path: ':id',
+        component: PostForm,
+      },
+    ],
+  },
+  {
+    path: '/new_post',
+    name: 'add_post',
+    component: AddPostForm,
+    beforeEnter: (to, from, next) => {
+      if (store.getters['user/isAuth']) {
+        next();
+      } else {
+        next('/authorization');
+      }
+    },
+  },
+  {
+    path: '/post/:id',
+    component: PostEdit,
   },
 ]
 
