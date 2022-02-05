@@ -1,17 +1,17 @@
 <template>
 <div>
-          <div class="tile-news">{{newsTitle}}</div>
-				<div class="foreword-news">{{newsForeword}}</div>
-        <div class="img-title-news" v-if="!newsVideo"><img :src="newsImageTitle" alt=""></div>
+          <div class="tile-news">{{editPost?.title}}</div>
+				<div class="foreword-news">{{editPost?.foreword}}</div>
+        <div class="img-title-news" v-if="!editPost?.video"><img :src="editPost?.image_title" alt=""></div>
         <div class="iframe_conteyner" v-else>
-          <iframe width="100%" height="480" :src="newsVideo" 
+          <iframe width="100%" height="480" :src="editPost?.video" 
         title="YouTube video player" frameborder="0" 
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
         allowfullscreen></iframe>
         </div>
 			<div class="text">
-				<div class="text-news">{{newsData}}</div>
-				<div class="text-news">{{newsDescription}}</div>
+				<div class="text-news">{{editPost?.data}}</div>
+				<div class="text-news">{{editPost?.description}}</div>
 			</div>
     </div>
 </template>
@@ -21,6 +21,7 @@ export default {
     name: 'PostsForm',
     data() {
     return {
+      editPost: null,
         newsId: '',
         newsTitle: "",
         newsForeword: "",
@@ -49,23 +50,18 @@ export default {
         newsData: '',
     };
     },
-  //   computed: {
-  //   postArray() {
-  //     return this.$store.getters["posts/all"];
-  //   },
-  // },
-    created() {
+      created() {
         const id = this.$route.params.id;
         const postById = this.$store.getters["news/newsById"];
-        const editPost = postById(id);
-        this.newsId = editPost?.id;
-        this.newsTitle = editPost?.title;
-        this.newsForeword = editPost?.foreword;
-        this.newsDescription = editPost?.description;
-        this.newsImageTitle = editPost?.image_title;
-        this.newsСategory = editPost?.category;
-        this.newsVideo = editPost?.video;
-        this.newsData = editPost?.data;
+        this.editPost = postById(id);
+        // this.newsId = editPost?.id;
+        // this.newsTitle = editPost?.title;
+        // this.newsForeword = editPost?.foreword;
+        // this.newsDescription = editPost?.description;
+        // this.newsImageTitle = editPost?.image_title;
+        // this.newsСategory = editPost?.category;
+        // this.newsVideo = editPost?.video;
+        // this.newsData = editPost?.data;
     },
 };
 </script>

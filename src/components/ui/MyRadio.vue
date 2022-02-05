@@ -36,11 +36,16 @@ export default {
         },
     },
     watch: {
-        modelValue () {
+    modelValue: {
+        handler() {
             this.inputValue = this.modelValue;
         },
-        inputValue () {
-            this.$emit('update:modelValue', this.inputValue);
+        immediate: true,
+        },
+        inputValue: {
+        handler() {
+            this.$emit("update:modelValue", this.inputValue);
+        },
         },
     },
 };

@@ -41,7 +41,7 @@
                 name="newsDescription"
                 rows="8"
             />
-            <my-select :options="newsСategory" v-model="selected" way="select" label="Категория новости"/>
+            <my-select :options="newsСategory" v-model="selectedСategory" way="select" label="Категория новости"/>
             <my-button label="Запилить" type="button" @click="onAdd"/>
         </div>
 </template>
@@ -55,7 +55,7 @@ export default {
       newsForeword: '',
       newsImageTitle: '',
       newsDescription: '',
-      selected: null,
+      selectedСategory: null,
       newsСategory: [ 
                 {
                 text: 'Анонсы',
@@ -85,7 +85,7 @@ export default {
         foreword: this.newsForeword,
         description: this.newsDescription,
         image_title: this.newsImageTitle,
-        category: this.newsСategory,
+        category: this.selectedСategory,
         video: this.newsVideo,
         data: this.newsData,
         });
@@ -98,7 +98,7 @@ export default {
         foreword: this.newsForeword,
         description: this.newsDescription,
         image_title: this.newsImageTitle,
-        category: this.newsСategory,
+        category: this.selectedСategory,
         video: this.newsVideo,
         data: this.newsData,
         });

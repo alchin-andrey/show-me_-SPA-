@@ -16,9 +16,10 @@
         <hr>
         </router-link>
 		<my-button label="/" type="button" @click="goTo(`/news_edit/${post.id}`)"/>
-		<my-button label="Х" type="button" @click="doDelete(post.id)"/>
+		<!-- <my-button label="Х" type="button" @click="doDelete(post.id)"/> -->
 		
-		<!-- <my-button label="Х" type="button" @click="showDialog()"/> -->
+		<my-button label="Х" type="button" @click="showDialog(post.id)"/>
+    
     </div>
 	<my-dialog ref="dialog">
 		<template #header>Так-так-так</template>
@@ -27,7 +28,7 @@
 			<my-button 
 				label="Да, абсолютли!" 
 				type="button" 
-				@click="doDelete(post.id)"/>
+				@click="doDelete(idForDelete)"/>
 			<my-button
 				label="Ноуп" 
 				type="button" 
@@ -41,6 +42,11 @@
 
 export default {
     name: "News",
+    data () {
+      return {
+        idForDelete: '',
+      }
+    },
     computed: {
     newsArray() {
 		return this.$store.getters["news/all"];
@@ -49,6 +55,7 @@ export default {
 	methods: {
 		doDelete (id) {
 		this.$store.dispatch('news/deletePost', id);
+    this.stopDialog()
 		},
 		getImage(name) {
 				return require(`${name}`);
@@ -56,14 +63,15 @@ export default {
 		goTo(route) {
 				this.$router.push(route);
 			},
-		showDialog() {
+		showDialog(id) {
+      this.idForDelete = id;
 			this.$refs.dialog.show();
 		},
 		stopDialog() {
+          this.idForDelete = '';
             this.$refs.dialog.shown = false;
         },
 	},
-	
 };
 </script>
 

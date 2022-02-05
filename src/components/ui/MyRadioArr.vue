@@ -34,11 +34,16 @@ export default {
         },
     },
     watch: {
-        modelValue () {
-            this.picked = this.modelValue;
+    modelValue: {
+        handler() {
+            this.inputValue = this.modelValue;
         },
-        picked () {
-            this.$emit('update:modelValue', this.picked);
+        immediate: true,
+        },
+        inputValue: {
+        handler() {
+            this.$emit("update:modelValue", this.inputValue);
+        },
         },
     },
 };
