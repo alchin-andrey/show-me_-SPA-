@@ -32,16 +32,13 @@ const firebaseConfig = {
 
 initializeApp(firebaseConfig);
 
-
-
-
-
-
-
 const auth = getAuth();
 let mounted = false;
 
+
 const db = getDatabase();
+
+// ----------------------------------------------------------------------------------//
 
 const path = '/posts/';
 onValue(ref(db, path), (snapshot) => {
@@ -52,6 +49,18 @@ console.log('onValue for', path, snapshot.val());
     store.commit('posts/addPost', value);
   }
 });
+
+const newsPath = '/news/';
+onValue(ref(db, newsPath), (snapshot) => {
+console.log('onValue for', newsPath, snapshot.val());
+  store.commit('news/clear');
+  const newsObject = snapshot.val();
+  for (const [key, value] of Object.entries(newsObject)) {
+    store.commit('news/addPost', value);
+  }
+});
+
+// ----------------------------------------------------------------------------------//
 
 
 

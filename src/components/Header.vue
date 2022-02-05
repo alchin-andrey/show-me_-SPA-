@@ -4,7 +4,8 @@
             <div class="header-flex">
                 <div class="logo" @click="goTo('/')"><img class="logo" alt="logo" src="@/assets/img/logo_3.svg"></div>
                 <nav class="menu-wrapper">
-                    <div class="menu cur-point" @click="goTo('/series_catalog')" :class="{active: activePath === '/series_catalog'}">Каталог сериалов</div>
+                    <div class="menu cur-point" @click="goTo('/series_catalog')" :class="{active: activePath === '/series_catalog'}">Сериалы</div>
+                    <div class="menu cur-point" @click="goTo('/news')" :class="{active: activePath === '/news'}">Новости</div>
                 </nav>
                 <div class="login-flex cur-point" v-if="$store.getters['user/isAuth']">
                     <div class="login-img"><img class="logo" alt="logo" src="@/assets/img/login.svg"></div>
@@ -92,10 +93,11 @@ export default {
     flex-wrap: wrap;
     padding-top: 6px;
     justify-content: center;
+    align-items: center;
 }
 
 .menu {
-    margin: 0 25px 0 0;
+    margin: 0 35px 0 35px;
 }
 
 @media (max-width: 920px) {
@@ -122,10 +124,10 @@ export default {
 .menu:hover::before {
     content: '';
     position: absolute;
-    width: 200px;
+    width: 50px;
     height: 3px;
     bottom: -8px;
-    left: calc(50% - 100px);
+    left: calc(50% - 25px);
     background: rgb(215, 30, 60);
     border-radius: 50px;
 }

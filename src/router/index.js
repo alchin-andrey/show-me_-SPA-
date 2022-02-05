@@ -9,6 +9,13 @@ import Favorites from '@/views/Favorites.vue'
 import Authorization from '@/views/Authorization.vue'
 import Register from '@/views/Register.vue'
 
+import AddNewsForm from '@/views/AddNewsForm.vue'
+import NewsForm from '@/components/NewsForm.vue'
+import NewsEdit from '@/components/NewsEdit.vue'
+
+
+
+
 import Posts from '@/views/Posts.vue'
 import AddPostForm from '@/views/AddPostForm.vue'
 import PostForm from '@/components/PostForm.vue'
@@ -31,7 +38,37 @@ const routes = [
   {
     path: '/news',
     name: 'news',
-    component: News
+    component: News,
+    // children: [
+    //   {
+    //     path: 'news_form',
+    //     component: NewsForm,
+    //   },
+    //   {
+    //     path: 'news_edit',
+    //     component: NewsEdit,
+    //   },
+    // ],
+  },
+  {
+    path: '/news_form/:id',
+    component: NewsForm,
+  },
+  {
+    path: '/news_edit/:id',
+    component: NewsEdit,
+  },
+  {
+    path: '/add_news',
+    name: 'add_news',
+    component: AddNewsForm,
+    beforeEnter: (to, from, next) => {
+      if (store.getters['user/isAuth']) {
+        next();
+      } else {
+        next('/authorization');
+      }
+    },
   },
   {
     path: '/my_series',
