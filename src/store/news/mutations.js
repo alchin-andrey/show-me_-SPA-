@@ -1,5 +1,5 @@
 export default {
-    addPost(state, data) {
+    addNews(state, data) {
         state.news.push(data);
     },
     clear(state) {

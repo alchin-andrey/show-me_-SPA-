@@ -20,7 +20,18 @@
         <my-dialog ref="dialog">
                     <template #header>Задумайтесь!</template>
                     <template #body>Вы уверены что хотите выйти?</template>
-                    <template #footer></template>
+                    <template #footer>
+                        <my-button 
+                    class="modal-default-button" 
+                    label="Да, абсолютли!" 
+                    type="button" 
+                    @click="doLogout"/>
+                    <my-button
+                    class="modal-default-button"
+                    label="Ноуп" 
+                    type="button" 
+                    @click="stopDialog"/>
+                    </template>
                 </my-dialog>
     </header>
 
@@ -52,6 +63,8 @@ export default {
         },
         doLogout () {
             this.$store.dispatch('user/logout');
+            this.$router.push('/');
+            this.stopDialog()
         },
     },
 };

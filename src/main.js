@@ -18,7 +18,7 @@ import MyDialog from "@/components/ui/MyDialog.vue";
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getDatabase, ref, onValue } from "firebase/database";
-import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { getAuth, onAuthStateChanged, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 
 const firebaseConfig = {
     apiKey: "AIzaSyDPhMmf3RI4uoZ9o-HC8ErobxtpyBoR5Ks",
@@ -32,36 +32,55 @@ const firebaseConfig = {
 
 initializeApp(firebaseConfig);
 
-const auth = getAuth();
+
 let mounted = false;
 
+// ----------------------------------------------------------------------------------//
 
 const db = getDatabase();
 
-// ----------------------------------------------------------------------------------//
+// const path = '/posts/';
+// onValue(ref(db, path), (snapshot) => {
+// console.log('onValue for', path, snapshot.val());
+//   store.commit('posts/clear');
+//   const postsObject = snapshot.val();
+//   for (const [key, value] of Object.entries(postsObject)) {
+//     store.commit('posts/addPost', value);
+//   }
+// });
 
-const path = '/posts/';
+// const newsPath = '/news/';
+// onValue(ref(db, newsPath), (snapshot) => {
+// console.log('onValue for', newsPath, snapshot.val());
+//   store.commit('news/clear');
+//   const newsObject = snapshot.val();
+//   for (const [key, value] of Object.entries(newsObject)) {
+//     store.commit('news/addNews', value);
+//   }
+// });
+
+function getData (path, clear, add) {
 onValue(ref(db, path), (snapshot) => {
-console.log('onValue for', path, snapshot.val());
-  store.commit('posts/clear');
-  const postsObject = snapshot.val();
-  for (const [key, value] of Object.entries(postsObject)) {
-    store.commit('posts/addPost', value);
-  }
-});
+  console.log('onValue for', path, snapshot.val());
+    store.commit(clear);
+    const object = snapshot.val();
+    for (const [key, value] of Object.entries(object)) {
+      store.commit(add, value);
+    }
+  });
+}
 
-const newsPath = '/news/';
-onValue(ref(db, newsPath), (snapshot) => {
-console.log('onValue for', newsPath, snapshot.val());
-  store.commit('news/clear');
-  const newsObject = snapshot.val();
-  for (const [key, value] of Object.entries(newsObject)) {
-    store.commit('news/addPost', value);
-  }
-});
+getData ('/posts', 'posts/clear', 'posts/addPost');
+getData ('/news', 'news/clear', 'news/addNews');
+getData ('/user', 'user/clear', 'user/addNews')
+
+
+
 
 // ----------------------------------------------------------------------------------//
 
+const auth = getAuth();
+const provider = new GoogleAuthProvider();
 
 
 onAuthStateChanged(auth, (user) => {

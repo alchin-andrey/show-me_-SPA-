@@ -20,12 +20,12 @@
                   <slot name="footer">
                     <my-button 
                     class="modal-default-button" 
-                    label="Да, абсолютли!" 
+                    label="Да" 
                     type="button" 
-                    @click="doLogout"/>
+                    @click="shown = false"/>
                     <my-button
                     class="modal-default-button"
-                    label="Ноуп" 
+                    label="Нет" 
                     type="button" 
                     @click="shown = false"/>
                   </slot>
@@ -53,11 +53,6 @@ export default {
     show() {
       this.shown = true;
     },
-    doLogout () {
-            this.$store.dispatch('user/logout');
-            this.$router.push('/');
-            this.shown = false;
-        },
   },
 };
 </script>
