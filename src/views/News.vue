@@ -1,8 +1,8 @@
 <template>
 <div>
-    <div class="main-tile">Новости</div>
-    <my-button label="Создать новость" type="button" @click="goTo('/add_news')"/>
-    <div class="tile-2">Количество новостей: {{ $store.getters["news/count"] }}</div>
+    <div class="title">Новости</div>
+    <div class="flex-c"><my-button label="Создать новость" type="button" @click="goTo('/add_news')" v-if="$store.getters['user/isAdmin']"/></div>
+    <div class="title-2">Количество новостей: {{ $store.getters["news/count"] }}</div>
     <div class="flex" v-for="post in newsArray" :key="post.id">
         <router-link class="flex-grow" :to="`/news_form/${post.id}`">
         <div class="news-card">
@@ -15,10 +15,10 @@
         </div>
         <hr>
         </router-link>
-		<my-button label="/" type="button" @click="goTo(`/news_edit/${post.id}`)"/>
+		<my-button label="/" type="button" @click="goTo(`/news_edit/${post.id}`)" v-if="$store.getters['user/isAdmin']"/>
 		<!-- <my-button label="Х" type="button" @click="doDelete(post.id)"/> -->
 		
-		<my-button label="Х" type="button" @click="showDialog(post.id)"/>
+		<my-button label="Х" type="button" @click="showDialog(post.id)" v-if="$store.getters['user/isAdmin']"/>
     
     </div>
 	<my-dialog ref="dialog">
@@ -104,14 +104,6 @@ export default {
 
 .flex-grow {
 	flex-grow:1;
-}
-
-.main-tile {
-    font-size: 28px;
-    line-height: 20px;
-    font-weight: 500;
-    margin-top: 15px;
-    margin-bottom: 10px;
 }
 
 .text {

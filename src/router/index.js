@@ -13,9 +13,6 @@ import AddNewsForm from '@/views/AddNewsForm.vue'
 import NewsForm from '@/components/NewsForm.vue'
 import NewsEdit from '@/components/NewsEdit.vue'
 
-
-
-
 import Posts from '@/views/Posts.vue'
 import AddPostForm from '@/views/AddPostForm.vue'
 import PostForm from '@/components/PostForm.vue'
@@ -53,10 +50,24 @@ const routes = [
   {
     path: '/news_form/:id',
     component: NewsForm,
+    beforeEnter: (to, from, next) => {
+      if (store.getters['user/isAdmin']) {
+        next();
+      } else {
+        next('/');
+      }
+    },
   },
   {
     path: '/news_edit/:id',
     component: NewsEdit,
+    beforeEnter: (to, from, next) => {
+      if (store.getters['user/isAdmin']) {
+        next();
+      } else {
+        next('/');
+      }
+    },
   },
   {
     path: '/add_news',
@@ -126,14 +137,21 @@ const routes = [
       if (!store.getters['user/isAuth']) {
         next();
       } else {
-        next('/authorization');
+        next('/');
       }
     },
   },
   {
     path: '/register',
     name: 'register',
-    component: Register
+    component: Register,
+    beforeEnter: (to, from, next) => {
+      if (!store.getters['user/isAuth']) {
+        next();
+      } else {
+        next('/');
+      }
+    },
   },
   {
     path: '/posts',

@@ -1,6 +1,6 @@
 <template>
         <div>
-            PostForm {{ $route.params.id }}
+            <div class="title">PostForm {{ $route.params.id }}</div>
             <my-input
             label=""
             v-model="postText"

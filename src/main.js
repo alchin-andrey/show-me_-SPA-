@@ -33,7 +33,7 @@ const firebaseConfig = {
 initializeApp(firebaseConfig);
 
 
-let mounted = false;
+
 
 // ----------------------------------------------------------------------------------//
 
@@ -64,28 +64,74 @@ onValue(ref(db, path), (snapshot) => {
   console.log('onValue for', path, snapshot.val());
     store.commit(clear);
     const object = snapshot.val();
+    console.log('object', object);
     for (const [key, value] of Object.entries(object)) {
+      console.log('key', key, 'value', value);
       store.commit(add, value);
     }
   });
 }
 
-getData ('/posts', 'posts/clear', 'posts/addPost');
-getData ('/news', 'news/clear', 'news/addNews');
-getData ('/user', 'user/clear', 'user/addNews')
 
 
+function getUser (path, clear, add) {
+  onValue(ref(db, path), (snapshot) => {
+    console.log('onValue for', path, snapshot.val());
+      store.commit(clear);
+      const object = snapshot.val();
+      store.commit(add, object);
+      console.log('object', object);
+      // for (const [key, value] of Object.entries(object)) {
+      //   console.log('key', key, 'value', value);
+      //   store.commit(add, value);
+      // }
+    });
+  }
 
+  
+  getData ('/posts', 'posts/clear', 'posts/addPost');
+  getData ('/news', 'news/clear', 'news/addNews');
+
+// function getUser (path, clear, add) {
+//   onValue(ref(db, path), (snapshot) => {
+//     console.log('onValue for', path, snapshot.val());
+//       store.commit(clear);
+//       const object = snapshot.val();
+//       console.log('object', object);
+//       for (const [key, value] of Object.entries(object)) {
+//         console.log('key', key, 'value', value);
+//         store.commit(add, value);
+//       }
+//     });
+//   }
+
+
+// const UserId = store.getters["user/userId"];
+
+// function getUserId () {
+//   let userId = store.getters["user/userId"];
+//   if (userId) {
+//     return getUser (`/users/${getUserId}`, 'user/clear', 'users/addUser')
+//   } else {
+//     return null
+//   }
+// }
+
+// console.log('getUserId', getUserId);
+// getData ('/users', 'user/clear', 'user/addUser')
+// getData (`/users/${getUserId}`, 'user/clear', 'users/addUser')
 
 // ----------------------------------------------------------------------------------//
 
 const auth = getAuth();
+console.log('getAuth', getAuth());
+let mounted = false;
 const provider = new GoogleAuthProvider();
-
 
 onAuthStateChanged(auth, (user) => {
     store.commit('user/setAuthUser', user);
     console.log('onAuthStateChanged', user);
+    getUser (`/users/${store.getters["user/userId"]}`, 'user/clear', 'user/addUser');
     if (!mounted) {
         app.use(router);
         app.mount('#app');

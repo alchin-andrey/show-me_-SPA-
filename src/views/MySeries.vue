@@ -1,5 +1,5 @@
 <template>
-  <div class="flex tile">
+  <div class="flex title">
     Мои сериалы (зарегестрированного пользователя)
   </div>
 </template>
@@ -17,14 +17,6 @@
     justify-content: center;
     margin: 10px;
     gap: 10px;
-}
-
-.tile {
-    font-size: 25px;
-    line-height: 20px;
-    font-weight: 500;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #1A1A1A;
 }
 
 </style>

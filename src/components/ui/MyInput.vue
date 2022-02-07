@@ -72,13 +72,10 @@ export default {
 
 </script>
 
-
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 
 input {
-    color: rgb(255, 255, 255);
+    color: rgb(215, 215, 215);
     background-color: rgb(54, 54, 54);
     border-top: 5px solid rgb(215, 30, 60);
     border-bottom: 2px solid rgb(54, 54, 54);
@@ -87,14 +84,15 @@ input {
     font-family: 'Roboto', sans-serif;
     font-style: normal;
     font-weight: 400;
-    max-width: 200px;
+    width: 100%;
+    min-width: 200px;
     height: 35px;
     padding:0 10px 0 10px;
-    margin: 5px;
 }
 
 ::placeholder {
-    color: rgb(202, 203, 204);
+    color: rgb(180, 180, 180);
+    font-size: 20px;
     text-align: center;
 }
 

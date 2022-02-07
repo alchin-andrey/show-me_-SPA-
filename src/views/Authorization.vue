@@ -3,12 +3,13 @@
     <form class="login" @submit.prevent>
         <div class="title">Войти</div>
 
-        <my-input label="" v-model="email" way="email" type="text" placeholder="E-mail" name="email"/>
-
-        <my-input label="" v-model="password" way="password" type="password" placeholder="Пароль" name="password"/>
+        <div class="flex">
+            <my-input label="" v-model="email" way="email" type="text" placeholder="E-mail" name="email"/>
+            <my-input label="" v-model="password" way="password" type="password" placeholder="Пароль" name="password"/>
             <my-button label="Войти" type="submit" @click="onAuthClick"/>
+        </div>
         <hr/>
-        <div>
+        <div class="flex">
         <div>Или зарегестрируйтесь:</div>
         <div class="reg" @click="goTo('/register')">Регистрация</div>
         </div>
@@ -53,12 +54,6 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 
-.title {
-    font-size: 24px;
-    font-weight: 600;
-    padding: 5px;
-}
-
 .author {
     display: flex;
     flex-direction: column;
@@ -67,9 +62,6 @@ export default {
     width: 100%;
     height: 100%;
 }
-
-
-
 
 .reg {
     color: rgb(32, 104, 167);
@@ -81,11 +73,12 @@ export default {
     color: rgb(215, 30, 60);
 }
 
-/* .flex {
+.flex {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-} */
+    gap: 10px;
+}
 
 </style>

@@ -8,7 +8,7 @@
                 name="message"
                 rows="4"
             />
-            <my-button label="Поститься" type="button" @click="onAdd"/>
+            <div class="flex-r"><my-button label="Поститься" type="button" @click="onAdd"/></div>
         </div>
 </template>
 

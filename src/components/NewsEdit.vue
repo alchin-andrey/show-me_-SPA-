@@ -1,38 +1,45 @@
 <template>
         <div>
-            <div>Создать новость</div>
-            <my-input
-                label=""
-                v-model="newsTitle"
-                way="newsTitle"
-                type="text"
-                placeholder="Заголовок новости"
-                name="newsTitle"
-            />
-            <my-input
-                label=""
-                v-model="newsForeword"
-                way="newsForeword"
-                type="text"
-                placeholder="Предисловие новости"
-                name="newsForeword"
-            />
-            <my-input
-                label=""
-                v-model="newsImageTitle"
-                way="newsImageTitle"
-                type="text"
-                placeholder="URL Изображения"
-                name="newsImageTitle"
-            />
-            <my-input
-                label=""
-                v-model="newsVideo"
-                way="newsVideo"
-                type="text"
-                placeholder="URL Видио"
-                name="newsVideo"
-            />
+            <div class="title">Редактировать новость</div>
+            <div class="flex">
+            <div class="input-gap">
+                <my-input
+                    label=""
+                    v-model="newsTitle"
+                    way="newsTitle"
+                    type="text"
+                    placeholder="Заголовок новости"
+                    name="newsTitle"
+                />
+                <my-input
+                    label=""
+                    v-model="newsForeword"
+                    way="newsForeword"
+                    type="text"
+                    placeholder="Предисловие новости"
+                    name="newsForeword"
+                />
+                <my-input
+                    label=""
+                    v-model="newsImageTitle"
+                    way="newsImageTitle"
+                    type="text"
+                    placeholder="URL Изображения"
+                    name="newsImageTitle"
+                />
+                <my-input
+                    label=""
+                    v-model="newsVideo"
+                    way="newsVideo"
+                    type="text"
+                    placeholder="URL Видио"
+                    name="newsVideo"
+                />
+            </div>
+            <div class="mar">
+                <my-select :options="newsСategory" v-model="selectedСategory" way="select" label=""/>
+            </div>
+            </div>
             <my-textarea
                 label="" 
                 v-model="newsDescription" 
@@ -41,9 +48,7 @@
                 name="newsDescription"
                 rows="8"
             />
-            
-            <my-select :options="newsСategory" v-model="selectedСategory" way="select" label="Категория новости"/>
-            <my-button label="Запилить" type="button" @click="onUpdate"/>
+            <div class="flex-r mrg"><my-button label="Запилить" type="button" @click="onUpdate"/></div>
         </div>
 </template>
 
@@ -53,27 +58,36 @@ export default {
     data() {
     return {
         newsId: '',
-        newsTitle: "",
-        newsForeword: "",
-        newsImageTitle: "",
-        newsDescription: "",
-        selectedСategory: null,
+        newsTitle: '',
+        newsForeword: '',
+        newsImageTitle: '',
+        newsDescription: '',
+        selectedСategory: '',
         newsСategory: [ 
+                {
+                text: 'Категория новости',
+                value: '',
+                disabled: true,
+                },
                 {
                 text: 'Анонсы',
                 value: 'Анонсы',
+                disabled: false,
                 },
                 {
                 text: 'Рецензии',
                 value: 'Рецензии',
+                disabled: false,
                 },
                 {
                 text: 'Трейлеры',
                 value: 'Трейлеры',
+                disabled: false,
                 },
                 {
                 text: 'Статьи',
                 value: 'Статьи',
+                disabled: false,
                 },
             ],
         newsVideo:'',
@@ -102,7 +116,7 @@ export default {
             image_title: this.newsImageTitle,
             category: this.selectedСategory,
             video: this.newsVideo,
-            // data: this.newsData,
+            data: this.newsData,
         });
         this.$router.push("/news");
         },
@@ -112,25 +126,20 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.content {
-
-    width: 100%;
+.input-gap {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin-bottom: 60px;
+  margin-right: 20px;
 }
 
-.flex {
-    display: flex;
-    margin: 10px;
+.flex{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
 }
 
-.tile {
-    font-size: 25px;
-    line-height: 25px;
-    margin: 10px;
-}
 
-.tile-2 {
-    font-size: 20px;
-    line-height: 25px;
-    margin: 10px;
-}
 </style>

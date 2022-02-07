@@ -19,7 +19,7 @@ export default {
     createPost(context, data) {
         data.id = generateUUID();
         const db = getDatabase();
-        set(ref(db, 'posts/'+data.id), data);
+        set(ref(db, 'posts/' + data.id), data);
     },
 
     updatePost(context, data) {

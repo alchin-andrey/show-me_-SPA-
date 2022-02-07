@@ -1,8 +1,8 @@
 <template>
-    <div id="v-model-select-dynamic">
+    <div id="v-model-select-dynamic" class="flex">
         <label :for="way">{{label}}</label>
         <select :id="way" v-model="inputValue">
-            <option v-for="item in options" :key="item" :value="item.value">{{item.text}}</option>
+            <option v-for="item in options" :key="item" :value="item.value" :disabled="Boolean(item.disabled)">{{item.text}}</option>
         </select>
     </div>
 </template>
@@ -69,7 +69,7 @@ export default {
 
 
 select {
-    color: rgb(255, 255, 255);
+    color: rgb(215, 215, 215);
     background-color: rgb(54, 54, 54);
     border-top: 5px solid rgb(215, 30, 60);
     border-bottom: 2px solid rgb(54, 54, 54);
@@ -78,13 +78,21 @@ select {
     font-family: 'Roboto', sans-serif;
     font-style: normal;
     font-weight: 400;
-    height: 25px;
-    margin: 5px 0 5px 10px;
+    height: 35px;
+    padding:0 10px 0 10px;
 }
 
 ::placeholder {
-    color: rgb(202, 203, 204);
+    color: rgb(180, 180, 180);
+    font-size: 20px;
     text-align: center;
+}
+
+option {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
 }
 
 </style>

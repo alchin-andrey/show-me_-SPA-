@@ -61,27 +61,8 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 
-/* textarea {
-    background: #FFFFFF;
-    border: 1px solid #C5D3DB;
-    font-family: 'Roboto', sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 149%;
-    width: 230px;
-    margin-right: 30px;
-    padding-left: 10px;
-} */
-
-.flex {
- display: flex;
- align-items: flex-start;
- justify-content: center;
-}
-
 textarea {
-    color: rgb(255, 255, 255);
+    color: rgb(215, 215, 215);
     background-color: rgb(54, 54, 54);
     border-top: 5px solid rgb(215, 30, 60);
     border-bottom: 2px solid rgb(54, 54, 54);
@@ -92,12 +73,13 @@ textarea {
     font-weight: 400;
     width: 100%;
     padding:0 10px 0 10px;
-    margin: 0px;
 }
 
 ::placeholder {
-    color: rgb(202, 203, 204);
-    text-align: start;
+    color: rgb(180, 180, 180);
+    font-size: 20px;
+    padding: 10px;
+    text-align: center;
 }
 
 </style>

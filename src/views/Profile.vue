@@ -1,46 +1,10 @@
 <template>
     <div class="about">
-        <div>Анкета (зарегестрированного пользователя)</div>
-        <form class="login" @submit.prevent="login">
-            <my-textarea
-                label="Сообщение:" 
-                v-model="message" 
-                way="message" 
-                placeholder="Ваше сообщение" 
-                name="email"
-                rows="2"
-            />
-
-            <my-input
-            label=""
-            v-model="birth_date"
-            way="birth_date"
-            type="date"
-            placeholder="Повторите пароль *"
-            name="birth_date"
-        />
-
-            <my-checkbox v-model="checked1" way="1" name="" value="Есть ребёнок" label="Есть ребёнок"/>
-            <my-checkbox v-model="checked2" way="2" name="" value="Женат" label="Женат"/>   
-            <div class="flex">
-            <my-radio-arr :options="radioOprions" v-model="picked" way="yes"/>
-            </div>
-            <my-select :options="selectOprions" v-model="selected" way="select" label="Выбрать цифру"/>
-
-
-                <my-button label="Диалог" type="button" @click="showDialog"/>
-                <my-dialog ref="dialog">
-                    <template #header>Заголовок</template>
-                    <template #body>Вы уверены в своей уверенности?</template>
-                    <template #footer></template>
-                </my-dialog>
-
-            <div class="flex">
-                <my-button label="+" type="" @click="doInc"/>
-                <my-button label="-" type="" @click="doDec"/>
-                <my-button label="Обнулить" type="" @click="doZero"/>
-            </div>
-        </form>
+        <div class="title"></div>
+        <div class="flex">
+            <div class="login">{{$store.getters["user/userlogin"]}}</div>
+            <div class="avatar image-wrap tape"><img :src="userAvatar()" alt=""></div>
+        </div>
     </div>
     
 </template>
@@ -50,51 +14,14 @@ export default {
     data () {
         return {
             message: null,
-            birth_date: null,
-            checked1: false,
-            checked2: false,
-            picked: null,
-            radioOprions: [ 
-                {
-                label: 'Да',
-                name: 'yes',
-                },
-                {
-                label: 'Нет',
-                name: 'no',
-                },
-            ],
-            selected: null,
-            selectOprions: [ 
-                {
-                text: '1',
-                value: '1',
-                },
-                {
-                text: '2',
-                value: '2',
-                },
-            ],
         };
     },
     methods: {
         GoTo(route) {
             this.$router.push(route);
         },
-        showDialog() {
-            this.$refs.dialog.show();
-        },
-        stopDialog() {
-            this.$refs.dialog.shown = false;
-        },
-        doInc () {
-            this.$store.commit('a/increment');
-        },
-        doDec () {
-            this.$store.commit('a/decrement');
-        },
-        doZero () {
-            this.$store.dispatch('a/setZero');
+        userAvatar() {
+        return this.$store.getters["user/userAvatar"];
         },
     },
 };
@@ -103,12 +30,36 @@ export default {
 
 <style scoped>
 
-.flex {
+/* .flex {
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 10px;
     gap: 10px;
+} */
+
+
+
+.avatar img{
+    width: 200px;
+    height: 200px;
+    border-radius: 15%;
+    border: 5px initial rgb(109, 109, 109);
 }
+
+.flex {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login {
+    font-size: 20px;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    color: rgb(37, 43, 49);
+}
+
+
 
 </style>

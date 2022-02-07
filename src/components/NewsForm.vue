@@ -10,7 +10,7 @@
         allowfullscreen></iframe>
         </div>
 			<div class="text">
-				<div class="text-news">{{editPost?.data}}</div>
+				<div class="data-news">{{editPost?.data}}</div>
 				<div class="text-news">{{editPost?.description}}</div>
 			</div>
     </div>
@@ -22,35 +22,35 @@ export default {
     data() {
     return {
       editPost: null,
-        newsId: '',
-        newsTitle: "",
-        newsForeword: "",
-        newsImageTitle: "",
-        newsDescription: "",
-        selected: null,
-        newsСategory: [ 
-                {
-                text: 'Анонсы',
-                value: 'Анонсы',
-                },
-                {
-                text: 'Рецензии',
-                value: 'Рецензии',
-                },
-                {
-                text: 'Трейлеры',
-                value: 'Трейлеры',
-                },
-                {
-                text: 'Статьи',
-                value: 'Статьи',
-                },
-            ],
-        newsVideo:'',
-        newsData: '',
+        // newsId: '',
+        // newsTitle: '',
+        // newsForeword: '',
+        // newsImageTitle: '',
+        // newsDescription: '',
+        // selected: null,
+        // newsСategory: [ 
+        //         {
+        //         text: 'Анонсы',
+        //         value: 'Анонсы',
+        //         },
+        //         {
+        //         text: 'Рецензии',
+        //         value: 'Рецензии',
+        //         },
+        //         {
+        //         text: 'Трейлеры',
+        //         value: 'Трейлеры',
+        //         },
+        //         {
+        //         text: 'Статьи',
+        //         value: 'Статьи',
+        //         },
+        //     ],
+        // newsVideo:'',
+        // newsData: '',
     };
     },
-      created() {
+      mounted() {
         const id = this.$route.params.id;
         const postById = this.$store.getters["news/newsById"];
         this.editPost = postById(id);
@@ -98,9 +98,6 @@ export default {
 
 .video {
     margin: 15px;
-    
-    /* max-width: 900px; */
-
 }
 
 iframe {
@@ -108,13 +105,12 @@ iframe {
 }
 
 .tile-news {
-    font-size: 20px;
+    font-size: 22px;
     line-height: 20px;
     font-weight: 600;
-
     color: rgb(17, 65, 138);
-    margin: 10px;
-    
+    margin: 20px 10px 10px 10px;
+    text-align: center;
 }
 
 .foreword-news {
@@ -122,16 +118,25 @@ iframe {
     line-height: 20px;
     font-weight: 600;
     color: #353535;
-    margin: 10px;
+    text-align: center;
 }
 
 .text-news {
-    font-size: 14px;
+    font-size: 16px;
     line-height: 20px;
     font-weight: 600;
     text-align: start;
     color: #353535;
-    margin: 10px;
+    text-align: justify
+}
+
+.data-news {
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 600;
+    text-align: start;
+    color: #313bbe;
+    margin-bottom: 10px;
 }
 
 .iframe_conteyner {
@@ -144,6 +149,6 @@ iframe {
     width: 100%;
     height: 100%;
     position: absolute;
-    padding: 30px 20px 20px 30px;
+    padding: 10px 20px 0px 20px;
 }
 </style>

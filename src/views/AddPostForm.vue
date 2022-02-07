@@ -1,23 +1,25 @@
 <template>
   <div>
-    Создать пост
-    <my-input
-    label=""
-    v-model="postText"
-    way="postText"
-    type="text"
-    placeholder="Текст поста"
-    name="postText"
-    />
-    <my-textarea
-        label="" 
-        v-model="postBody" 
-        way="postBody" 
-        placeholder="Новость" 
-        name="postBody"
-        rows="4"
-    />
-    <my-button label="Поститься" type="button" @click="onAdd"/>
+    <div class="title">Создать пост</div>
+    <div class="gap">
+      <my-input
+      label=""
+      v-model="postText"
+      way="postText"
+      type="text"
+      placeholder="Заголовок поста"
+      name="postText"
+      />
+      <my-textarea
+          label="" 
+          v-model="postBody" 
+          way="postBody" 
+          placeholder="Тело поста" 
+          name="postBody"
+          rows="4"
+      />
+    </div>
+    <div class="flex-r"><my-button label="Поститься" type="button" @click="onAdd"/></div>
   </div>
 </template>
 
@@ -48,20 +50,12 @@ export default {
 
 <style scoped>
 
-/* .flex {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 10px;
-    gap: 10px;
+.gap {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin-bottom: 10px;
 }
-
-.tile {
-    font-size: 25px;
-    line-height: 20px;
-    font-weight: 500;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #1A1A1A;
-} */
 
 </style>

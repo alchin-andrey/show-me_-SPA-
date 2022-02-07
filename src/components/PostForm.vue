@@ -1,6 +1,6 @@
 <template>
         <div>
-            Создать пост
+          <div class="title">Создать пост</div>
             <my-input
             label=""
             v-model="postText"

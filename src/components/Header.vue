@@ -7,9 +7,9 @@
                     <div class="menu cur-point" @click="goTo('/series_catalog')" :class="{active: activePath === '/series_catalog'}">Сериалы</div>
                     <div class="menu cur-point" @click="goTo('/news')" :class="{active: activePath === '/news'}">Новости</div>
                 </nav>
-                <div class="login-flex cur-point" v-if="$store.getters['user/isAuth']">
-                    <div class="login-img"><img class="logo" alt="logo" src="@/assets/img/login.svg"></div>
-                    <div class="login-title cur-point" @click="showDialog">{{$store.getters['user/userEmail'].split('@')[0]}}</div>
+                <div class="login-flex cur-point" @click="showDialog" v-if="$store.getters['user/isAuth']">
+                    <div class="login-img"><img class="logo" alt="logo" :src="userAvatar()"></div>
+                    <div class="login-title cur-point">{{$store.getters['user/userlogin']}}</div>
                 </div>
                 <div class="login-flex cur-point" @click="goTo('/authorization')" v-else >
                     <div class="login-img"><img class="logo" alt="logo" src="@/assets/img/anonim.svg"></div>
@@ -65,6 +65,9 @@ export default {
             this.$store.dispatch('user/logout');
             this.$router.push('/');
             this.stopDialog()
+        },
+        userAvatar() {
+        return this.$store.getters["user/userAvatar"];
         },
     },
 };

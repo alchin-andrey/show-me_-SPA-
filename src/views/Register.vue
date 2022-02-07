@@ -1,7 +1,7 @@
 <template>
     <div class="register">
     <div class="title">Регистрация</div>
-    <form class="flex-form" @submit.prevent>
+    <!-- <form class="flex-form" @submit.prevent> -->
         <div class="flex">
         <my-input
             label=""
@@ -41,9 +41,10 @@
             name="password_confirmation"
             required="true"
         />
+        
+            <my-button label="Регистрация" type="button" @click="onRegisterClick"/>
         </div>
-            <my-button label="Регистрация" type="submit" @click="onRegisterClick"/>
-        </form>
+        <!-- </form> -->
     </div>
 </template>
 
@@ -51,11 +52,12 @@
 export default {
     data() {
         return {
-        login: "",
-        email: "",
-        password: "",
-        password_confirmation: "",
-        focus: true
+        login: '',
+        email: '',
+        password: '',
+        password_confirmation: '',
+        img: '',
+        // focus: true
         };
     },
     methods: {
@@ -67,11 +69,25 @@ export default {
                 email: this.email,
                 password: this.password,
             }).then((status) => {
+                console.log('status', status);
                 if (status === 'OK') {
+                    this.onAdd();
                     this.$router.push('/my_series');
                 } else if (status !== 'OK') {
                     alert('Ошибка регистрации');
                 }
+            });
+        },
+        getImage() {
+            console.log ('anonim.svg', require('@/assets/img/login.svg'))
+            return require('@/assets/img/login.svg');
+            },
+        onAdd() {
+            this.$store.dispatch("user/createUser", { 
+            email: this.email, 
+            password: this.password,
+            login: this.login,
+            avatar: this.getImage(),
             });
         },
     },
@@ -90,17 +106,12 @@ export default {
     height: 100%;
 }
 
-.flex-form {
+.flex {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 10px;
 }
 
-
-.title {
-    font-size: 24px;
-    font-weight: 600;
-    padding: 5px;
-}
 </style>

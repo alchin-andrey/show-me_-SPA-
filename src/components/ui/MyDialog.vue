@@ -89,13 +89,6 @@ export default {
   box-shadow: 0 2px 8px rgb(37, 43, 49);
   transition: all 0.3s ease;
   font-family: Helvetica, Arial, sans-serif;
-  /* background: repeating-linear-gradient(
-    45deg,
-    rgb(58, 58, 58),
-    rgb(58, 58, 58) 10px,
-    #d11919 10px,
-    #d11919 20px
-  ); */
 	border: 10px solid rgb(37, 43, 49);
 }
 
@@ -130,10 +123,12 @@ export default {
   font-size: 20px;
   font-weight: 600;
   padding: 10px;
+  text-align: center;
 }
 
 .modal-body {
   padding: 10px 0;
+  text-align: center;
 }
 
 .modal-default-button {
