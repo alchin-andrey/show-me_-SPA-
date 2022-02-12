@@ -61,12 +61,12 @@ const db = getDatabase();
 
 function getData (path, clear, add) {
 onValue(ref(db, path), (snapshot) => {
-  console.log('onValue for', path, snapshot.val());
+  // console.log('onValue for', path, snapshot.val());
     store.commit(clear);
     const object = snapshot.val();
-    console.log('object', object);
+    // console.log('object', object);
     for (const [key, value] of Object.entries(object)) {
-      console.log('key', key, 'value', value);
+      // console.log('key', key, 'value', value);
       store.commit(add, value);
     }
   });
@@ -76,11 +76,11 @@ onValue(ref(db, path), (snapshot) => {
 
 function getUser (path, clear, add) {
   onValue(ref(db, path), (snapshot) => {
-    console.log('onValue for', path, snapshot.val());
+    // console.log('onValue for', path, snapshot.val());
       store.commit(clear);
       const object = snapshot.val();
       store.commit(add, object);
-      console.log('object', object);
+      // console.log('object', object);
       // for (const [key, value] of Object.entries(object)) {
       //   console.log('key', key, 'value', value);
       //   store.commit(add, value);
@@ -124,13 +124,13 @@ function getUser (path, clear, add) {
 // ----------------------------------------------------------------------------------//
 
 const auth = getAuth();
-console.log('getAuth', getAuth());
+// console.log('getAuth', getAuth());
 let mounted = false;
 const provider = new GoogleAuthProvider();
 
 onAuthStateChanged(auth, (user) => {
     store.commit('user/setAuthUser', user);
-    console.log('onAuthStateChanged', user);
+    // console.log('onAuthStateChanged', user);
     getUser (`/users/${store.getters["user/userId"]}`, 'user/clear', 'user/addUser');
     if (!mounted) {
         app.use(router);

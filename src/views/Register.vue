@@ -69,7 +69,7 @@ export default {
                 email: this.email,
                 password: this.password,
             }).then((status) => {
-                console.log('status', status);
+                // console.log('status', status);
                 if (status === 'OK') {
                     this.onAdd();
                     this.$router.push('/my_series');
