@@ -22,6 +22,7 @@ export default {
     data() {
     return {
       editPost: null,
+      id: null,
         // newsId: '',
         // newsTitle: '',
         // newsForeword: '',
@@ -50,18 +51,35 @@ export default {
         // newsData: '',
     };
     },
-      mounted() {
+    //   created() {
+    //     const id = this.$route.params.id;
+    //     const postById = this.$store.getters["news/newsById"];
+    //     this.editPost = postById(id);
+    //     console.log (id, postById, this.editPost)
+    //     // this.newsId = editPost?.id;
+    //     // console.log (newsId)
+    //     // this.newsTitle = editPost?.title;
+    //     // this.newsForeword = editPost?.foreword;
+    //     // this.newsDescription = editPost?.description;
+    //     // this.newsImageTitle = editPost?.image_title;
+    //     // this.newsСategory = editPost?.category;
+    //     // this.newsVideo = editPost?.video;
+    //     // this.newsData = editPost?.data;
+    // },
+    computed: {
+      count() {
+      return this.$store.getters["news/count"];
+      },
+    },
+    watch: {
+        count: {
+        handler() {
         const id = this.$route.params.id;
         const postById = this.$store.getters["news/newsById"];
         this.editPost = postById(id);
-        // this.newsId = editPost?.id;
-        // this.newsTitle = editPost?.title;
-        // this.newsForeword = editPost?.foreword;
-        // this.newsDescription = editPost?.description;
-        // this.newsImageTitle = editPost?.image_title;
-        // this.newsСategory = editPost?.category;
-        // this.newsVideo = editPost?.video;
-        // this.newsData = editPost?.data;
+        },
+        immediate: true,
+        },
     },
 };
 </script>

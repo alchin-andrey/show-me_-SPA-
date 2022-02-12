@@ -48,16 +48,13 @@ export default {
             return state.account.email;
         },
         userAvatar (state) {
-            console.log ('state.user.avatar', state.user.avatar)
             return state.user.avatar;
         },
         userlogin (state) {
-            console.log ('state.user.login', state.user.login)
             return state.user.login;
         },
         // -------------------------------------- //
         all (state) {
-            console.log ('state.user', state.user)
             return state.user;
         },
         // -------------------------------------- //
@@ -69,7 +66,6 @@ export default {
         },
         // -------------------------------------- //
         addUser(state, data) {
-            console.log('DATA', data)
             state.user = data;
         },
         clear(state) {
@@ -104,7 +100,6 @@ export default {
             return createUserWithEmailAndPassword(auth, data.email, data.password)
             .then((userCredential) => {
                 context.state.account = userCredential.user;
-                console.log('Auth user', context.state.account);
                     return 'OK';
             })
             .catch((error) => {
@@ -114,7 +109,6 @@ export default {
         },
             // --------------------------------------------------//
             createUser(context, data) {
-                console.log('createUser', data)
                 data.id = context.state.account.uid;
                 const db = getDatabase();
                 set(ref(db, 'users/'+ data.id), data)
